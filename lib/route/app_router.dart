@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+import 'package:urdentist/presentation/account/account.dart';
+import 'package:urdentist/presentation/consultation/consultation.dart';
+import 'package:urdentist/global_widgets/scaffold_navbar.dart';
+import 'package:urdentist/presentation/habit/habit.dart';
+import 'package:urdentist/presentation/homepage/homepage.dart';
+
+import 'package:urdentist/route/routes.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:urdentist/presentation/splash/splash_screen.dart';
+import 'package:urdentist/presentation/splash/introduction.dart';
+import 'package:urdentist/presentation/authentication/screen/signin.dart';
+import 'package:urdentist/presentation/authentication/screen/forgot_password.dart';
+import 'package:urdentist/presentation/authentication/screen/forgot_password_code.dart';
+import 'package:urdentist/presentation/authentication/screen/create_newpass.dart';
+import 'package:urdentist/presentation/authentication/screen/register.dart';
+import 'package:urdentist/presentation/authentication/screen/register_code.dart';
+import 'package:urdentist/presentation/authentication/screen/email_success.dart';
+import 'package:urdentist/presentation/authentication/screen/forgot_success.dart';
+
+class AppRouter extends StatefulWidget {
+  const AppRouter({super.key});
+
+  @override
+  State<AppRouter> createState() => _AppRouterState();
+}
+
+class _AppRouterState extends State<AppRouter> {
+  final _rootNavKey = GlobalKey<NavigatorState>();
+  final _shellNavKey = GlobalKey<NavigatorState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: GoRouter(
+        initialLocation: Routes.SPLASH_SCREEN,
+        navigatorKey: _rootNavKey,
+        routes: [
+          ShellRoute(
+            navigatorKey: _shellNavKey,
+            builder: (context, state, widget) =>
+                ScaffoldWithNavbar(context, widget),
+            routes: [
+              GoRoute(
+                parentNavigatorKey: _shellNavKey,
+                path: Routes.HOMEPAGE_SCREEN,
+                builder: (context, _) => HomePage(),
+              ),
+              GoRoute(
+                parentNavigatorKey: _shellNavKey,
+                path: Routes.CONSULTATION_SCREEN,
+                builder: (context, _) => Consultation(),
+              ),
+              GoRoute(
+                parentNavigatorKey: _shellNavKey,
+                path: Routes.HABIT_SCREEN,
+                builder: (context, _) => Habit(),
+              ),
+              GoRoute(
+                parentNavigatorKey: _shellNavKey,
+                path: Routes.ACCOUNT_SCREEN,
+                builder: (context, _) => Account(),
+              ),
+            ],
+          ),
+          // ------
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.SPLASH_SCREEN,
+            builder: (context, _) => const SplashScreen(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.INTRODUCTION_SCREEN,
+            builder: (context, _) => Introduction(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.SIGNIN_SCREEN,
+            builder: (context, _) => SignIn(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.FORGOT_SCREEN,
+            builder: (context, _) => ForgotPassword(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.FORGOTCODE_SCREEN,
+            builder: (context, _) => ForgotPasswordCode(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.CREATEPASS_SCREEN,
+            builder: (context, _) => CreateNewPass(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.REGISTER_SCREEN,
+            builder: (context, _) => Register(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.REGISTERCODE_SCREEN,
+            builder: (context, _) => RegisterCode(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.EMAILSUCCESS_SCREEN,
+            builder: (context, _) => EmailSuccess(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.FORGOTSUCCESS_SCREEN,
+            builder: (context, _) => ForgotSuccess(),
+          ),
+        ],
+      ),
+    );
+  }
+}
