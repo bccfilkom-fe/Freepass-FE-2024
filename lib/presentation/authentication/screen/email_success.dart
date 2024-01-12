@@ -10,8 +10,7 @@ class EmailSuccess extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Container(
+      body: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -73,6 +72,6 @@ class EmailSuccess extends StatelessWidget {
           ),
         ),
       ),
-    ));
+    );
   }
 }

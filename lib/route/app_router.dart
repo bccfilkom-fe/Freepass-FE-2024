@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:urdentist/presentation/account/account.dart';
+import 'package:urdentist/presentation/chooseProfile/choose_profile.dart';
 import 'package:urdentist/presentation/consultation/consultation.dart';
 import 'package:urdentist/global_widgets/scaffold_navbar.dart';
 import 'package:urdentist/presentation/habit/habit.dart';
+import 'package:urdentist/presentation/habit/recapDetail.dart';
 import 'package:urdentist/presentation/homepage/homepage.dart';
 
 import 'package:urdentist/route/routes.dart';
@@ -66,6 +68,7 @@ class _AppRouterState extends State<AppRouter> {
             ],
           ),
           // ------
+
           GoRoute(
             parentNavigatorKey: _rootNavKey,
             path: Routes.SPLASH_SCREEN,
@@ -115,6 +118,16 @@ class _AppRouterState extends State<AppRouter> {
             parentNavigatorKey: _rootNavKey,
             path: Routes.FORGOTSUCCESS_SCREEN,
             builder: (context, _) => ForgotSuccess(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.RECAPDETAIL_SCREEN,
+            builder: (context, _) => RecapDetail(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.CHOOSEPROFILE_SCREEN,
+            builder: (context, _) => ChooseProfile(),
           ),
         ],
       ),

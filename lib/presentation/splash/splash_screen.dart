@@ -27,10 +27,18 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset("assets/images/icon_splash.svg"),
+              SvgPicture.asset("assets/images/splash.svg"),
               const Padding(
                 padding: EdgeInsets.only(
                   top: 16,
+                ),
+                child: Text(
+                  "UrDentist",
+                  style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],

@@ -122,7 +122,6 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.yellow.shade50,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     width: width * 0.85,
-                    height: height * 0.16,
                     child: Column(
                       children: [
                         Row(
@@ -302,11 +301,14 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Column(
-              children: globalDailyTasks.map((task) {
-                task.updateStatus();
-                return DailyTaskWidget(task, 'home');
-              }).toList(),
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: Column(
+                children: globalDailyTasks.map((task) {
+                  task.updateStatus();
+                  return DailyTaskWidget(task, 'home');
+                }).toList(),
+              ),
             ),
             Container(
               margin:
@@ -325,6 +327,83 @@ class _HomePageState extends State<HomePage> {
                           fontSize: width * 0.035,
                           color: Colors.blue.shade800,
                           fontWeight: FontWeight.w600))
+                ],
+              ),
+            ),
+            Container(
+              margin:
+                  EdgeInsets.only(left: 20, right: 20, bottom: height * 0.01),
+              padding: const EdgeInsets.only(right: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 1,
+                    blurRadius: 1.2,
+                    offset: Offset(0, 0.2),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      'assets/images/article1.jpg',
+                      width: width * 0.25,
+                    ),
+                  ),
+                  SizedBox(width: width * 0.03),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Oral Health',
+                          style: TextStyle(
+                            fontSize: width * 0.03,
+                            color: Colors.blue.shade800,
+                          ),
+                        ),
+                        SizedBox(
+                          height: height * 0.01,
+                        ),
+                        Text(
+                          'Healthy teeth, healthy smile.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: width * 0.04,
+                          ),
+                        ),
+                        SizedBox(height: height * 0.01),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '6 January 2024',
+                              style: TextStyle(
+                                fontSize: width * 0.027,
+                                color: Colors.grey.shade600,
+                              ),
+                            ),
+                            Text(
+                              'Read More',
+                              style: TextStyle(
+                                fontSize: width * 0.027,
+                                color: Colors.blue.shade800,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -431,8 +510,9 @@ class _DailyTaskWidgetState extends State<DailyTaskWidget> {
         ? Container()
         : Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-            margin:
-                EdgeInsets.only(bottom: height * 0.015, left: 20, right: 20),
+            margin: EdgeInsets.only(
+              bottom: height * 0.015,
+            ),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: const BorderRadius.all(Radius.circular(10)),

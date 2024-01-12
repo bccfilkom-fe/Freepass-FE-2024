@@ -184,13 +184,32 @@ class _ForgotPasswordCodeState extends State<ForgotPasswordCode> {
                             "Didn't receive the code?",
                             style: TextStyle(color: Colors.grey.shade600),
                           )),
-                      Text(
-                        'Resend Code',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: Colors.blue.shade700,
-                            fontSize: 15),
-                      )
+                      Obx(() {
+                        return GestureDetector(
+                          onTap: () {
+                            emailController.forgot(
+                              onSuccess: (msg) {
+                                GoRouter.of(context).go(
+                                  Routes.FORGOTCODE_SCREEN,
+                                );
+                                showMySnackbar(context, msg);
+                              },
+                              onFailed: (e) {
+                                showMySnackbar(context, "Gagal $e");
+                              },
+                            );
+                          },
+                          child: emailController.isLoading.value
+                              ? const CircularProgressIndicator()
+                              : Text(
+                                  'Resend Code',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.blue.shade700,
+                                      fontSize: 15),
+                                ),
+                        );
+                      })
                     ],
                   ),
                 ),

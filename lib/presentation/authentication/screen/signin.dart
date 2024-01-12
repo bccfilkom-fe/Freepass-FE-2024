@@ -33,7 +33,7 @@ class _SignInState extends State<SignIn> {
               padding:
                   EdgeInsets.only(top: height * 0.07, bottom: height * 0.04),
               alignment: Alignment.center,
-              child: Image.asset('assets/images/signIn_image.png'),
+              child: SvgPicture.asset('assets/images/Logo.svg'),
             ),
             Container(
               alignment: Alignment.centerLeft,
@@ -178,7 +178,8 @@ class _SignInState extends State<SignIn> {
                       onTap: () {
                         controller.login(onSuccess: (token) {
                           controller.saveToken(token, () {
-                            GoRouter.of(context).go(Routes.HOMEPAGE_SCREEN);
+                            GoRouter.of(context)
+                                .go(Routes.CHOOSEPROFILE_SCREEN);
                             showMySnackbar(context, 'berhasil');
                           });
                         }, onFailed: (msg) {

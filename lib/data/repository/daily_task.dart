@@ -1,18 +1,18 @@
-// class DailyTask {
-//   final String image;
-//   final String description;
-//   bool status;
+class ExtraTask {
+  final String image;
+  final String description;
+  bool status;
 
-//   DailyTask(this.image, this.description, this.status);
-// }
+  ExtraTask(this.image, this.description, this.status);
+}
 
-// List<DailyTask> globalDailyTasks = [
-//   DailyTask('assets/images/task1.png', 'Brush teeth after breakfast', false),
-//   // DailyTask('assets/images/task2.png', 'Brush teeth for 2 minutes', false),
-//   DailyTask('assets/images/task3.png', 'Brush teeth before sleep', false),
-//   DailyTask('assets/images/task4.png', 'Floss once a day', false),
-//   // DailyTask('assets/images/task5.png', 'Use fluoride toothpaste', false),
-// ];
+List<ExtraTask> globalExtraTasks = [
+  // ExtraTask('assets/images/task1.png', 'Brush teeth after breakfast', false),
+  ExtraTask('assets/images/task2.png', 'Brush teeth for 2 minutes', false),
+  // ExtraTask('assets/images/task3.png', 'Brush teeth before sleep', false),
+  // ExtraTask('assets/images/task4.png', 'Floss once a day', false),
+  ExtraTask('assets/images/task5.png', 'Use fluoride toothpaste', false),
+];
 
 class DailyTask {
   final String image;
