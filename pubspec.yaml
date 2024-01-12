@@ -87,11 +87,18 @@ flutter:
     - assets/images/icon_consultation.svg
     - assets/images/icon_habit.svg
     - assets/images/icon_account.svg
+    - assets/images/task1.png
+    - assets/images/task2.png
+    - assets/images/task3.png
+    - assets/images/task4.png
+    - assets/images/task5.png
+    - assets/images/article1.jpg
     - assets/images/flyer.png
     - assets/images/icon_health_tracker.png
     - assets/images/icon_caries_detector.png
     - assets/images/icon_dentist.png
     - assets/images/icon_avatar.png
+    - assets/images/icon_trophy.png
     - assets/images/signIn_image.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

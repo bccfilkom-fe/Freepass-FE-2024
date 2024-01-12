@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:urdentist/presentation/homepage/homepage.dart';
+import 'package:urdentist/presentation/habit/habit.dart';
 import 'package:urdentist/route/app_router.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomePage()
+        home: Habit()
         // home: const SafeArea(
         //     child: Scaffold(
         //   body: AppRouter(),
