@@ -54,108 +54,110 @@ class _IntroductionState extends State<Introduction> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        backgroundColor: Colors.white,
         body: Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(top: height * 0.02),
-            height: height * 0.8,
-            child: Swiper(
-              controller: _swiperController,
-              itemCount: data.length,
-              loop: false,
-              itemBuilder: (context, index) {
-                bool showSkipButton = index == 0 || index == 1;
-                return Stack(children: [
-                  Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              _swiperController.move(data.length - 1);
-                            },
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: width * 0.03,
-                                  vertical: height * 0.015),
-                              child: Text(
-                                'Skip',
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                  color: showSkipButton
-                                      ? Colors.blue.shade700
-                                      : Colors.transparent,
-                                  fontWeight: FontWeight.w600,
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: height * 0.02),
+                height: height * 0.8,
+                child: Swiper(
+                  controller: _swiperController,
+                  itemCount: data.length,
+                  loop: false,
+                  itemBuilder: (context, index) {
+                    bool showSkipButton = index == 0 || index == 1;
+                    return Stack(children: [
+                      Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  _swiperController.move(data.length - 1);
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.03,
+                                      vertical: height * 0.015),
+                                  child: Text(
+                                    'Skip',
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: showSkipButton
+                                          ? Colors.blue.shade700
+                                          : Colors.transparent,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                            ],
+                          ),
+                          SvgPicture.asset(
+                            data[index].image,
+                            height: height * 0.4,
+                          ),
+                          Text(
+                            data[index].header,
+                            style: TextStyle(
+                                fontSize: width * 0.075,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: height * 0.015,
+                          ),
+                          Text(
+                            data[index].description,
+                            style: TextStyle(color: Colors.grey.shade600),
                           ),
                         ],
                       ),
-                      SvgPicture.asset(
-                        data[index].image,
-                        height: height * 0.4,
-                      ),
-                      Text(
-                        data[index].header,
-                        style: TextStyle(
-                            fontSize: width * 0.075,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: height * 0.015,
-                      ),
-                      Text(
-                        data[index].description,
-                        style: TextStyle(color: Colors.grey.shade600),
-                      ),
-                    ],
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: width * 0.02,
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        width: 50.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.blue.shade700,
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.chevron_right,
-                            size: 35,
-                            color: Colors.white,
+                      Positioned(
+                        bottom: 0,
+                        right: width * 0.02,
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            width: 50.0,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.blue.shade700,
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.chevron_right,
+                                size: 35,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {
+                                showSkipButton
+                                    ? _swiperController.next()
+                                    : GoRouter.of(context)
+                                        .go(Routes.SIGNIN_SCREEN);
+                              },
+                            ),
                           ),
-                          onPressed: () {
-                            showSkipButton
-                                ? _swiperController.next()
-                                : GoRouter.of(context).go(Routes.SIGNIN_SCREEN);
-                          },
                         ),
                       ),
+                    ]);
+                  },
+                  pagination: SwiperPagination(
+                    alignment: Alignment.bottomLeft,
+                    builder: DotSwiperPaginationBuilder(
+                      color: Colors.blue[100],
+                      activeColor: Colors.blue[700],
+                      activeSize: width * 0.035,
                     ),
                   ),
-                ]);
-              },
-              pagination: SwiperPagination(
-                alignment: Alignment.bottomLeft,
-                builder: DotSwiperPaginationBuilder(
-                  color: Colors.blue[100],
-                  activeColor: Colors.blue[700],
-                  activeSize: width * 0.035,
                 ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
-    ));
+        ));
   }
 }
 

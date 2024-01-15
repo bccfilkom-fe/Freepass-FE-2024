@@ -18,4 +18,5 @@ class Routes {
   static const RECAPDETAIL_SCREEN = "/recapdetail";
   static const CHOOSEPROFILE_SCREEN = "/chooseprofile";
   static const CREATEPROFILE_SCREEN = "/createprofile";
+  static const ANSWER_SCREEN = "/answer";
 }

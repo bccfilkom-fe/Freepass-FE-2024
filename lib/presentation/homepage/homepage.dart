@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:go_router/go_router.dart';
-import 'package:urdentist/data/model/response/task/task_response.dart';
-// import 'package:urdentist/data/model/response/task/task_response.dart';
+// import 'package:go_router/go_router.dart';
 // import 'package:urdentist/data/model/response/profile/profile_response.dart';
 import 'package:urdentist/data/repository/daily_task.dart';
-// import 'package:urdentist/presentation/authentication/screen/register.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
-// import 'package:urdentist/data/repository/user.dart';
 import 'package:urdentist/presentation/chooseProfile/profile_controller.dart';
 import 'package:urdentist/presentation/homepage/task_controller.dart';
-import 'package:urdentist/route/routes.dart';
+// import 'package:urdentist/route/routes.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -21,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
   var profileController = Get.find<ProfileController>();
-  var taskController = Get.put(TaskController());
+  var taskController = Get.find<TaskController>();
   var date = DateTime.now();
 
   @override
@@ -36,30 +30,6 @@ class _HomePageState extends State<HomePage> {
     fetchData();
   }
 
-  // void fetchData() {
-  //   var year = date.year.toString();
-  //   var month = date.month.toString().padLeft(2, '0');
-  //   var day = date.day.toString().padLeft(2, '0');
-
-  //   taskController.profileId = profileController.profile.value.id;
-  //   taskController.date = "$year-$month-$day";
-  //   taskController.getTasks(
-  //     onSuccess: (tasks) {
-  //       taskController.tasks.value = tasks;
-  //     },
-  //     onFailed: (error) {
-  //       print('$error ');
-  //     },
-  //   );
-
-  //   List<int> taskIds =
-  //       taskController.tasks.map((task) => task.taskId).toList();
-
-  //   taskController.dailyTasks.value = globalDailyTasks.where((globalTask) {
-  //     return !taskIds.any((taskId) => taskId == globalTask.id);
-  //   }).toList();
-  // }
-
   Future<void> fetchData() async {
     var year = date.year.toString();
     var month = date.month.toString().padLeft(2, '0');
@@ -71,16 +41,15 @@ class _HomePageState extends State<HomePage> {
     try {
       await taskController.getTasks(onSuccess: (tasks) {
         taskController.tasks.value = tasks;
+        List<int> taskIds =
+            taskController.tasks.map((task) => task.taskId).toList();
+
+        taskController.dailyTasks.value = globalDailyTasks.where((globalTask) {
+          return !taskIds.any((taskId) => taskId == globalTask.id);
+        }).toList();
       }, onFailed: (error) {
         print('$error ');
       });
-
-      List<int> taskIds =
-          taskController.tasks.map((task) => task.taskId).toList();
-
-      taskController.dailyTasks.value = globalDailyTasks.where((globalTask) {
-        return !taskIds.any((taskId) => taskId == globalTask.id);
-      }).toList();
     } catch (error) {
       print('$error');
       // Handle the error appropriately
@@ -95,6 +64,7 @@ class _HomePageState extends State<HomePage> {
     // String email = UserManager.instance.getEmail();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -596,93 +566,172 @@ class _DailyTaskWidgetState extends State<DailyTaskWidget> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return widget.task.status && widget.page == "home"
-        ? Container()
-        : Container(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-            margin: EdgeInsets.only(
-              bottom: height * 0.015,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 1.2,
-                  offset: Offset(0, 0.2),
+    return widget.task.profileId == 0
+        ? widget.task.id == 2 || widget.task.id == 5
+            ? Container()
+            : widget.task.status && widget.page == "home"
+                ? Container()
+                : Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 12),
+                    margin: EdgeInsets.only(
+                      bottom: height * 0.015,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 1,
+                          blurRadius: 1.2,
+                          offset: Offset(0, 0.2),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              widget.task.image,
+                              width: width * 0.11,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              width: width * 0.4,
+                              child: Text(
+                                widget.task.description,
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            )
+                          ],
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            !widget.task.status
+                                ? setState(() {
+                                    widget.task.status = true;
+                                  })
+                                : '';
+                            taskController.completeTask(
+                                taskId: widget.task.id,
+                                onSuccess: (msg) {
+                                  print(msg);
+                                  home.fetchData();
+                                },
+                                onFailed: (msg) {
+                                  print(msg);
+                                });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 6, horizontal: 16),
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              color: !widget.task.status
+                                  ? Colors.blue.shade700
+                                  : Colors.grey.shade200,
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Done',
+                                style: TextStyle(
+                                  color: !widget.task.status
+                                      ? Colors.white
+                                      : Colors.grey.shade600,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+        : widget.task.taskId == 2 || widget.task.taskId == 5
+            ? Container()
+            : Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                margin: EdgeInsets.only(
+                  bottom: height * 0.015,
                 ),
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      widget.task.image,
-                      width: width * 0.11,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 1.2,
+                      offset: Offset(0, 0.2),
                     ),
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          widget.task.taskId == 1
+                              ? 'assets/images/task1.png'
+                              : widget.task.taskId == 3
+                                  ? 'assets/images/task3.png'
+                                  : widget.task.taskId == 4
+                                      ? 'assets/images/task4.png'
+                                      : '',
+                          width: width * 0.11,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          width: width * 0.4,
+                          child: Text(
+                            widget.task.nama,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
                     Container(
-                      alignment: Alignment.centerLeft,
-                      width: width * 0.4,
-                      child: Text(
-                        widget.task.description,
-                        textAlign: TextAlign.start,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        color: Colors.grey.shade200,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Done',
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     )
                   ],
                 ),
-                GestureDetector(
-                  onTap: () {
-                    !widget.task.status
-                        ? setState(() {
-                            widget.task.status = true;
-                          })
-                        : '';
-                    taskController.completeTask(
-                        taskId: widget.task.id,
-                        onSuccess: (msg) {
-                          print(msg);
-                          home.fetchData();
-                        },
-                        onFailed: (msg) {
-                          print(msg);
-                        });
-                  },
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: !widget.task.status
-                          ? Colors.blue.shade700
-                          : Colors.grey.shade200,
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Done',
-                        style: TextStyle(
-                          color: !widget.task.status
-                              ? Colors.white
-                              : Colors.grey.shade600,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          );
+              );
   }
 }

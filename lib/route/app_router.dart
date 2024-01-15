@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:urdentist/presentation/account/account.dart';
 import 'package:urdentist/presentation/chooseProfile/screen/choose_profile.dart';
 import 'package:urdentist/presentation/chooseProfile/screen/create_profile.dart';
+import 'package:urdentist/presentation/consultation/answer.dart';
 import 'package:urdentist/presentation/consultation/consultation.dart';
 import 'package:urdentist/global_widgets/scaffold_navbar.dart';
 import 'package:urdentist/presentation/habit/habit.dart';
@@ -134,6 +135,11 @@ class _AppRouterState extends State<AppRouter> {
             parentNavigatorKey: _rootNavKey,
             path: Routes.CREATEPROFILE_SCREEN,
             builder: (context, _) => CreateProfile(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.ANSWER_SCREEN,
+            builder: (context, _) => Answer(),
           ),
         ],
       ),

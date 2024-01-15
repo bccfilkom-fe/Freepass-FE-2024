@@ -93,8 +93,10 @@ flutter:
     - assets/images/task3.png
     - assets/images/task4.png
     - assets/images/task5.png
+    - assets/images/verified.png
     - assets/images/article1.jpg
     - assets/images/flyer.png
+    - assets/images/drLuna.png
     - assets/images/icon_health_tracker.png
     - assets/images/icon_caries_detector.png
     - assets/images/icon_dentist.png

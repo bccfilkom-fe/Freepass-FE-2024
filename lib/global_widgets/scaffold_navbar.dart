@@ -7,6 +7,7 @@ Widget ScaffoldWithNavbar(
   Widget widget,
 ) {
   return Scaffold(
+    backgroundColor: Colors.white,
     bottomNavigationBar: AppNavbar(
       GoRouter.of(context)
           .routerDelegate

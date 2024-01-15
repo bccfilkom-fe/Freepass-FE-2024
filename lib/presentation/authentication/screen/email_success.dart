@@ -10,6 +10,8 @@ class EmailSuccess extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Colors.white,
+
       body: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(

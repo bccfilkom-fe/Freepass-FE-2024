@@ -28,6 +28,7 @@ class _RegisterCodeState extends State<RegisterCode> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
