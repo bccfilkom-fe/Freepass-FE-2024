@@ -11,6 +11,16 @@ class UserManager extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setNameAndEmail(String name, String email) {
+    _currentUser = User(
+      ID: _currentUser.ID,
+      FullName: name,
+      NoPhone: _currentUser.NoPhone,
+      EmailAddress: email,
+    );
+    notifyListeners();
+  }
+
   String getFullName() {
     return _currentUser.FullName;
   }
@@ -19,11 +29,11 @@ class UserManager extends ChangeNotifier {
     return _currentUser.EmailAddress;
   }
 
-  String getNoPhone() {
+  String? getNoPhone() {
     return _currentUser.NoPhone;
   }
 
-  int getID() {
+  int? getID() {
     return _currentUser.ID;
   }
 

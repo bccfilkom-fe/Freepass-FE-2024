@@ -1,5 +1,3 @@
-import 'package:urdentist/presentation/chooseProfile/choose_profile.dart';
-
 class Routes {
   static const SPLASH_SCREEN = "/";
   static const INTRODUCTION_SCREEN = "/introduction";
@@ -19,4 +17,5 @@ class Routes {
   static const ACCOUNT_SCREEN = "/account";
   static const RECAPDETAIL_SCREEN = "/recapdetail";
   static const CHOOSEPROFILE_SCREEN = "/chooseprofile";
+  static const CREATEPROFILE_SCREEN = "/createprofile";
 }

@@ -1,13 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:urdentist/data/model/request/forgot_password/forgot_password_request.dart';
+// import 'package:urdentist/data/model/request/login/login_google_request.dart';
 
 import 'package:urdentist/data/model/request/login/login_request.dart';
+import 'package:urdentist/data/model/request/profile/create_profile_request.dart';
 import 'package:urdentist/data/model/request/register/register_request.dart';
 import 'package:urdentist/data/model/request/reset_password/reset_password_request.dart';
 import 'package:urdentist/data/model/request/verify/verify_request.dart';
 import 'package:urdentist/data/model/request/verify/resend_verify_request.dart';
 import 'package:urdentist/data/model/request/verify_password/verify_password_request.dart';
+// import 'package:urdentist/data/model/response/login/login_google_response.dart';
+import 'package:urdentist/data/model/response/profile/profile_response.dart';
+import 'package:urdentist/data/model/response/task/task_response.dart';
 import 'package:urdentist/data/repository/retrofit_client.dart';
 import 'package:urdentist/data/repository/user.dart';
 
@@ -47,6 +52,14 @@ class Repository {
       onFailed(err.toString());
     });
   }
+
+  // void googleLogin({required Function(GoogleLoginResponse) onSuccess}) {
+  //   client.googleLogin().then((value) {
+  //     onSuccess(value);
+  //   }).catchError((err) {
+  //     debugPrint(err.toString());
+  //   });
+  // }
 
   void register(
     String fullName,
@@ -187,5 +200,108 @@ class Repository {
     if (prefs != null) {
       onSuccess(prefs?.getString("TOKEN") ?? "");
     }
+  }
+
+  // Profile
+
+  void createProfile(
+    String namaLengkap,
+    String tempatLahir,
+    String tanggalLahir,
+    String alamat,
+    String alergi, {
+    required Function(String) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client
+        .createProfile(CreateProfileRequest(
+            namaLengkap: namaLengkap,
+            tempatLahir: tempatLahir,
+            tanggalLahir: tanggalLahir,
+            alamat: alamat,
+            alergi: alergi))
+        .then((response) {
+      if (response.message == "Profile created successfully") {
+        onSuccess(response.message);
+      } else {
+        onFailed("Failed to create profile");
+      }
+    }).catchError((error) {
+      onFailed("Error: $error");
+      print(error);
+    });
+  }
+
+  void getProfileAll({
+    required Function(List<ProfileResponse>) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.getProfileAll().then((value) {
+      onSuccess(value);
+    }).catchError((error) {
+      print('gagal $error');
+      onFailed(error);
+    });
+  }
+
+  void getProfileId(
+    int profileId, {
+    required Function(ProfileResponse) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.getProfileId(profileId).then((value) {
+      onSuccess(value);
+    }).catchError((error) {
+      onFailed("Error: $error");
+    });
+  }
+
+  void deleteProfile(
+    int profileId, {
+    required Function(String) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.deleteProfile(profileId).then((response) {
+      if (response.message == "Profile deleted successfully") {
+        onSuccess(response.message);
+      } else {
+        onFailed("Failed to delete profile");
+      }
+    }).catchError((error) {
+      onFailed("Error: $error");
+    });
+  }
+
+  // Task
+
+  void completeTask(
+    int profileId,
+    int taskId, {
+    required Function(String) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.completeTask(profileId, taskId).then((response) {
+      if (response.message == "Task completed successfully") {
+        onSuccess(response.message);
+      } else {
+        onFailed("Failed to complete task");
+      }
+    }).catchError((error) {
+      onFailed("Error: $error");
+    });
+  }
+
+  void getTask(
+    int profileId,
+    String date, {
+    required Function(List<TaskResponse>) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.getTasksByProfileAndDate(profileId, date).then((value) {
+      onSuccess(value);
+    }).catchError((error) {
+      onSuccess([]);
+      onFailed("gagal di repo: $error $profileId $date");
+    });
   }
 }

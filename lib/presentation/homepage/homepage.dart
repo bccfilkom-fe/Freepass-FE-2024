@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:urdentist/data/model/response/task/task_response.dart';
+// import 'package:urdentist/data/model/response/task/task_response.dart';
+// import 'package:urdentist/data/model/response/profile/profile_response.dart';
 import 'package:urdentist/data/repository/daily_task.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:urdentist/presentation/authentication/screen/register.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:urdentist/data/repository/user.dart';
+// import 'package:urdentist/data/repository/user.dart';
+import 'package:urdentist/presentation/chooseProfile/profile_controller.dart';
+import 'package:urdentist/presentation/homepage/task_controller.dart';
+import 'package:urdentist/route/routes.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +20,72 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
+  var profileController = Get.find<ProfileController>();
+  var taskController = Get.put(TaskController());
+  var date = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('Dependencies changed');
+    fetchData();
+  }
+
+  // void fetchData() {
+  //   var year = date.year.toString();
+  //   var month = date.month.toString().padLeft(2, '0');
+  //   var day = date.day.toString().padLeft(2, '0');
+
+  //   taskController.profileId = profileController.profile.value.id;
+  //   taskController.date = "$year-$month-$day";
+  //   taskController.getTasks(
+  //     onSuccess: (tasks) {
+  //       taskController.tasks.value = tasks;
+  //     },
+  //     onFailed: (error) {
+  //       print('$error ');
+  //     },
+  //   );
+
+  //   List<int> taskIds =
+  //       taskController.tasks.map((task) => task.taskId).toList();
+
+  //   taskController.dailyTasks.value = globalDailyTasks.where((globalTask) {
+  //     return !taskIds.any((taskId) => taskId == globalTask.id);
+  //   }).toList();
+  // }
+
+  Future<void> fetchData() async {
+    var year = date.year.toString();
+    var month = date.month.toString().padLeft(2, '0');
+    var day = date.day.toString().padLeft(2, '0');
+
+    taskController.profileId = profileController.profile.value.id;
+    taskController.date = "$year-$month-$day";
+
+    try {
+      await taskController.getTasks(onSuccess: (tasks) {
+        taskController.tasks.value = tasks;
+      }, onFailed: (error) {
+        print('$error ');
+      });
+
+      List<int> taskIds =
+          taskController.tasks.map((task) => task.taskId).toList();
+
+      taskController.dailyTasks.value = globalDailyTasks.where((globalTask) {
+        return !taskIds.any((taskId) => taskId == globalTask.id);
+      }).toList();
+    } catch (error) {
+      print('$error');
+      // Handle the error appropriately
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +129,8 @@ class _HomePageState extends State<HomePage> {
                                     Row(
                                       children: [
                                         Text(
-                                          'Jesley Weasley',
+                                          profileController
+                                              .profile.value.namaLengkap,
                                           style: TextStyle(
                                             fontSize: width * 0.05,
                                             fontWeight: FontWeight.bold,
@@ -302,14 +378,24 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Column(
-                children: globalDailyTasks.map((task) {
-                  task.updateStatus();
-                  return DailyTaskWidget(task, 'home');
-                }).toList(),
-              ),
-            ),
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                child: FutureBuilder(
+                  future: fetchData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      // Widget yang akan ditampilkan setelah fetchData selesai
+                      return Column(
+                        children: taskController.dailyTasks.map((task) {
+                          task.updateStatus();
+                          return DailyTaskWidget(task, 'home');
+                        }).toList(),
+                      );
+                    } else {
+                      // Widget atau indikator loading sementara fetchData berjalan
+                      return CircularProgressIndicator();
+                    }
+                  },
+                )),
             Container(
               margin:
                   EdgeInsets.only(top: height * 0.015, bottom: height * 0.01),
@@ -491,8 +577,9 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: must_be_immutable
 class DailyTaskWidget extends StatefulWidget {
-  final DailyTask task;
+  var task;
   String page;
 
   DailyTaskWidget(this.task, this.page);
@@ -502,6 +589,9 @@ class DailyTaskWidget extends StatefulWidget {
 }
 
 class _DailyTaskWidgetState extends State<DailyTaskWidget> {
+  var taskController = Get.put(TaskController());
+  _HomePageState home = _HomePageState();
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -559,6 +649,15 @@ class _DailyTaskWidgetState extends State<DailyTaskWidget> {
                             widget.task.status = true;
                           })
                         : '';
+                    taskController.completeTask(
+                        taskId: widget.task.id,
+                        onSuccess: (msg) {
+                          print(msg);
+                          home.fetchData();
+                        },
+                        onFailed: (msg) {
+                          print(msg);
+                        });
                   },
                   child: Container(
                     padding:

@@ -1,20 +1,19 @@
 class ExtraTask {
+  final int id;
   final String image;
   final String description;
   bool status;
 
-  ExtraTask(this.image, this.description, this.status);
+  ExtraTask(this.id, this.image, this.description, this.status);
 }
 
 List<ExtraTask> globalExtraTasks = [
-  // ExtraTask('assets/images/task1.png', 'Brush teeth after breakfast', false),
-  ExtraTask('assets/images/task2.png', 'Brush teeth for 2 minutes', false),
-  // ExtraTask('assets/images/task3.png', 'Brush teeth before sleep', false),
-  // ExtraTask('assets/images/task4.png', 'Floss once a day', false),
-  ExtraTask('assets/images/task5.png', 'Use fluoride toothpaste', false),
+  ExtraTask(2, 'assets/images/task2.png', 'Brush teeth for 2 minutes', false),
+  ExtraTask(5, 'assets/images/task5.png', 'Use fluoride toothpaste', false),
 ];
 
 class DailyTask {
+  final int id;
   final String image;
   final String description;
   bool status;
@@ -22,6 +21,7 @@ class DailyTask {
   int scheduledEndHour;
 
   DailyTask(
+    this.id,
     this.image,
     this.description,
     this.status,
@@ -45,6 +45,7 @@ class DailyTask {
 
 List<DailyTask> globalDailyTasks = [
   DailyTask(
+    1,
     'assets/images/task1.png',
     'Brush teeth after breakfast',
     false,
@@ -52,6 +53,7 @@ List<DailyTask> globalDailyTasks = [
     11,
   ),
   DailyTask(
+    3,
     'assets/images/task3.png',
     'Brush teeth before sleep',
     false,
@@ -59,10 +61,11 @@ List<DailyTask> globalDailyTasks = [
     23,
   ),
   DailyTask(
+    4,
     'assets/images/task4.png',
     'Floss once a day',
     false,
-    5,
+    1,
     23,
   ),
 ];

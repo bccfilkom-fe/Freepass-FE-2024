@@ -2,17 +2,23 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 
 import 'package:urdentist/data/model/request/forgot_password/forgot_password_request.dart';
+// import 'package:urdentist/data/model/request/login/login_google_request.dart';
 import 'package:urdentist/data/model/request/login/login_request.dart';
+import 'package:urdentist/data/model/request/profile/create_profile_request.dart';
 import 'package:urdentist/data/model/request/register/register_request.dart';
 import 'package:urdentist/data/model/request/reset_password/reset_password_request.dart';
 import 'package:urdentist/data/model/request/verify/verify_request.dart';
 import 'package:urdentist/data/model/request/verify/resend_verify_request.dart';
 import 'package:urdentist/data/model/request/verify_password/verify_password_request.dart';
+import 'package:urdentist/data/model/response/baseResponse/base_response.dart';
 
 import 'package:urdentist/data/model/response/forgot_password/forgot_password_response.dart';
+// import 'package:urdentist/data/model/response/login/login_google_response.dart';
 import 'package:urdentist/data/model/response/login/login_response.dart';
+import 'package:urdentist/data/model/response/profile/profile_response.dart';
 import 'package:urdentist/data/model/response/register/register_response.dart';
 import 'package:urdentist/data/model/response/reset_password/reset_password_response.dart';
+import 'package:urdentist/data/model/response/task/task_response.dart';
 import 'package:urdentist/data/model/response/verify/verify_response.dart';
 import 'package:urdentist/data/model/response/verify/resend_verify_response.dart';
 import 'package:urdentist/data/model/response/verify_password/verify_password_response.dart';
@@ -56,5 +62,33 @@ abstract class RetrofitClient {
   @POST("/reset-password")
   Future<ResetPasswordResponse> resetPassword(
     @Body() ResetPassword request,
+  );
+
+  // Profile
+  @POST("/profile")
+  Future<BaseResponse> createProfile(
+    @Body() CreateProfileRequest request,
+  );
+
+  @GET("/profile")
+  Future<List<ProfileResponse>> getProfileAll();
+
+  @GET("/profile/{profileId}")
+  Future<ProfileResponse> getProfileId(@Path("profileId") int profileId);
+
+  @DELETE("/profile/{profileId}")
+  Future<BaseResponse> deleteProfile(@Path("profileId") int profileId);
+
+  // Task
+  @POST("/profile/{profileId}/task/{taskId}/complete")
+  Future<BaseResponse> completeTask(
+    @Path("profileId") int profileId,
+    @Path("taskId") int taskId,
+  );
+
+  @GET("/profile/{profileId}/tasks")
+  Future<List<TaskResponse>> getTasksByProfileAndDate(
+    @Path("profileId") int profileId,
+    @Query("date") String date,
   );
 }

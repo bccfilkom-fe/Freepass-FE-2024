@@ -22,15 +22,15 @@ class LoginResponse {
 
 @JsonSerializable()
 class User {
-  int ID;
+  int? ID;
   String FullName;
-  String NoPhone;
+  String? NoPhone;
   String EmailAddress;
 
   User({
-    required this.ID,
+    this.ID,
     required this.FullName,
-    required this.NoPhone,
+    this.NoPhone,
     required this.EmailAddress,
   });
 

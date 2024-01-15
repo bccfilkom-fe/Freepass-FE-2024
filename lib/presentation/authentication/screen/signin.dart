@@ -1,3 +1,4 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,6 +15,9 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  // await Firebase.initializeApp();
+
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
   LoginController controller = Get.put(LoginController());
 
   bool isPasswordVisible = false;
@@ -51,6 +55,27 @@ class _SignInState extends State<SignIn> {
                 style: TextStyle(color: Colors.grey.shade600),
               ),
             ),
+            // Obx(() {
+            //   return controller.isLoading.value
+            //       ? Container(
+            //           margin: EdgeInsets.only(top: height * 0.025),
+            //           child: const CircularProgressIndicator(),
+            //         )
+            //       : GestureDetector(
+            //           onTap: (() {
+            //             controller.googleLogin(onSuccess: (token) {
+            //               controller.saveToken(token, () {
+            //                 GoRouter.of(context)
+            //                     .go(Routes.CHOOSEPROFILE_SCREEN);
+            //                 showMySnackbar(context, 'berhasil');
+            //               });
+            //             }, onFailed: (msg) {
+            //               showMySnackbar(context, msg);
+            //             });
+            //           }),
+            //           child:
+            //         );
+            // }),
             Container(
               margin: EdgeInsets.only(top: height * 0.025),
               padding: EdgeInsets.all(height * 0.02),

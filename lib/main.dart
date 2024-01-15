@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:urdentist/presentation/habit/recapDetail.dart';
+// import 'package:urdentist/presentation/consultation/consultation.dart';
 import 'package:urdentist/route/app_router.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 SharedPreferences? prefs = null;
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // ignore: invalid_use_of_visible_for_testing_member
     FlutterSecureStorage.setMockInitialValues({});
     initSharedPref();
 
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: RecapDetail()
+      // home: Consultation()
       home: const SafeArea(
           child: Scaffold(
         body: AppRouter(),
