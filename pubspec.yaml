@@ -97,6 +97,7 @@ flutter:
     - assets/images/article1.jpg
     - assets/images/flyer.png
     - assets/images/drLuna.png
+    - assets/images/drLuna2.png
     - assets/images/icon_health_tracker.png
     - assets/images/icon_caries_detector.png
     - assets/images/icon_dentist.png

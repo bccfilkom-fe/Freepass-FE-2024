@@ -12,6 +12,7 @@ import 'package:urdentist/data/model/request/verify/resend_verify_request.dart';
 import 'package:urdentist/data/model/request/verify_password/verify_password_request.dart';
 // import 'package:urdentist/data/model/response/login/login_google_response.dart';
 import 'package:urdentist/data/model/response/profile/profile_response.dart';
+import 'package:urdentist/data/model/response/question/question_response.dart';
 import 'package:urdentist/data/model/response/task/task_response.dart';
 import 'package:urdentist/data/repository/retrofit_client.dart';
 import 'package:urdentist/data/repository/user.dart';
@@ -302,6 +303,31 @@ class Repository {
     }).catchError((error) {
       onSuccess([]);
       onFailed("gagal di repo: $error $profileId $date");
+    });
+  }
+
+  // Task
+
+  void getQuestionAll({
+    required Function(List<QuestionResponse>) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.getQuestionAll().then((value) {
+      onSuccess(value);
+    }).catchError((error) {
+      onFailed("$error");
+    });
+  }
+
+  void getQuestionId(
+    int questionId, {
+    required Function(QuestionResponse) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client.getQuestionId(questionId).then((value) {
+      onSuccess(value);
+    }).catchError((error) {
+      onFailed("$error");
     });
   }
 }

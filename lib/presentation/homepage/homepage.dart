@@ -17,6 +17,8 @@ class _HomePageState extends State<HomePage> {
   var profileController = Get.find<ProfileController>();
   var taskController = Get.find<TaskController>();
   var date = DateTime.now();
+  String tahun = "";
+  String bulan = "";
 
   @override
   void initState() {
@@ -31,6 +33,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> fetchData() async {
+    DateTime tanggalLahir = profileController.profile.value.tanggalLahir;
+    int umurTahun = date.year - tanggalLahir.year;
+    int umurBulan = date.month - tanggalLahir.month;
+
+    if (date.day < tanggalLahir.day) {
+      umurBulan -= 1;
+    }
+
+    if (umurBulan < 0) {
+      umurTahun -= 1;
+      umurBulan += 12;
+    }
+
+    tahun = '$umurTahun years';
+    if (umurBulan > 0) {
+      bulan = ' $umurBulan month';
+    }
+
     var year = date.year.toString();
     var month = date.month.toString().padLeft(2, '0');
     var day = date.day.toString().padLeft(2, '0');
@@ -125,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                                             Radius.circular(20)),
                                       ),
                                       child: Text(
-                                        '3 Years and 1 Month',
+                                        '$tahun and $bulan',
                                         style: TextStyle(
                                           fontSize: width * 0.03,
                                         ),

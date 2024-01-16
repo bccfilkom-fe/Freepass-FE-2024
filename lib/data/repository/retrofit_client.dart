@@ -16,6 +16,7 @@ import 'package:urdentist/data/model/response/forgot_password/forgot_password_re
 // import 'package:urdentist/data/model/response/login/login_google_response.dart';
 import 'package:urdentist/data/model/response/login/login_response.dart';
 import 'package:urdentist/data/model/response/profile/profile_response.dart';
+import 'package:urdentist/data/model/response/question/question_response.dart';
 import 'package:urdentist/data/model/response/register/register_response.dart';
 import 'package:urdentist/data/model/response/reset_password/reset_password_response.dart';
 import 'package:urdentist/data/model/response/task/task_response.dart';
@@ -91,4 +92,12 @@ abstract class RetrofitClient {
     @Path("profileId") int profileId,
     @Query("date") String date,
   );
+
+  // Question
+
+  @GET("/questions")
+  Future<List<QuestionResponse>> getQuestionAll();
+
+  @GET("/question/{questionId}")
+  Future<QuestionResponse> getQuestionId(@Path("questionId") int questionId);
 }

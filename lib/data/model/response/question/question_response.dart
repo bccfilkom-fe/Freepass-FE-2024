@@ -1,46 +1,37 @@
-// import 'package:json_annotation/json_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-// part 'question_response.g.dart';
+part 'question_response.g.dart';
 
-// @JsonSerializable()
-// class QuestionItem {
-//   @JsonKey(name: 'ID')
-//   int id;
+@JsonSerializable()
+class QuestionResponse {
+  @JsonKey(name: 'ID')
+  late int id;
 
-//   @JsonKey(name: 'CreatedAt')
-//   DateTime createdAt;
+  @JsonKey(name: 'CreatedAt')
+  late DateTime createdAt;
 
-//   @JsonKey(name: 'Tag')
-//   String tag;
+  @JsonKey(name: 'Tag')
+  late String tag;
 
-//   @JsonKey(name: 'Question')
-//   String question;
+  @JsonKey(name: 'Question')
+  late String question;
 
-//   @JsonKey(name: 'Answer')
-//   String answer;
+  @JsonKey(name: 'Answer')
+  late String? answer;
 
-//   @JsonKey(name: 'AnsweredAt')
-//   DateTime answeredAt;
+  @JsonKey(name: 'AnsweredAt')
+  late DateTime? answeredAt;
 
-//   @JsonKey(name: 'ProfileID')
-//   int profileID;
+  @JsonKey(name: 'NamaLengkap')
+  late String name;
 
-//   @JsonKey(name: 'DentistID')
-//   int dentistID;
+  @JsonKey(name: 'DentistID')
+  late int? dentistID;
 
-//   QuestionItem({
-//     required this.id,
-//     required this.createdAt,
-//     required this.tag,
-//     required this.question,
-//     required this.answer,
-//     required this.answeredAt,
-//     required this.profileID,
-//     required this.dentistID,
-//   });
+  QuestionResponse();
 
-//   factory QuestionItem.fromJson(Map<String, dynamic> json) =>
-//       _$QuestionItemFromJson(json);
+  factory QuestionResponse.fromJson(Map<String, dynamic> json) =>
+      _$QuestionResponseFromJson(json);
 
-//   Map<String, dynamic> toJson() => _$QuestionItemToJson(this);
-// }
+  Map<String, dynamic> toJson() => _$QuestionResponseToJson(this);
+}

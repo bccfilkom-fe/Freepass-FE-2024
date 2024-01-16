@@ -38,6 +38,7 @@ Widget AppNavbar(String selectedRoute, Function(String route) onItemClicked) {
   ];
 
   return BottomAppBar(
+    color: Colors.white70,
     elevation: 16,
     height: 72,
     padding: EdgeInsets.symmetric(horizontal: 24),
