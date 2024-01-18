@@ -215,7 +215,7 @@ The Member of our team
 
 ## 📷 Screenshot APP
 
-### Splash Screeen
+### Splash Screen
 ![WhatsApp Image 2024-01-12 at 17 49 09_81b886fe](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/b99bc214-cf33-4e3d-909e-bf9f07602888)
 ![WhatsApp Image 2024-01-12 at 17 49 09_49d9347f](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/e3e8b613-11d4-463d-bcc0-ec416c72ebdc)
 ![WhatsApp Image 2024-01-12 at 17 49 10_71f97f04](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/3aa32a89-7eb5-4d94-88f5-786c10787740)
