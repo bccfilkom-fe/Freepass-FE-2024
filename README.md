@@ -1,25 +1,210 @@
-# urdentist
+# UrDentistApp
 
-A new Flutter project.
+Application that can help prevention caries
 
-## Getting Started
+<u>**By Ravenclaw**</u>
 
-This project is a starting point for a Flutter application.
+## 📒 Index
+- [About](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-About)
 
-A few resources to get you started if this is your first Flutter project:
+## 🔰 About
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Saat ini prevalensi karies gigi di Indonesia sangatlah tinggi, khususnya pada anak-anak usia 5-9 tahun yang memiliki persentase sebesar 90%. Padahal gangguan kesehatan gigi dapat berdampak signifikan terhadap kualitas hidup sang anak, seperti mengalami speech delay, kurangnya kemampuan sosial, tidak bisa hadir sekolah, dan aktivitas lainnya. Gangguan tersebut akan berdampak pada kualitas partisipasi generasi mendatang dalam pertumbuhan ekonomi nasional dari berbagai aspek. Besarnya dampak negatif yang dihasilkan, tidak disertai dengan kesadaran masyarakat akan pentingnya menjaga kesehatan gigi sejak dini. Menyadari permasalahan tersebut, ide kami hadir dengan goals utama untuk meningkatkan kesadaran para orang tua akan pentingnya menjaga kesehatan gigi anak sedini mungkin sebagai upaya preventif terhadap penyakit gigi dan mulut. Terdapat 3 langkah signifikan yang dilakukan oleh aplikasi kami, yaitu : 1. Membangun habit (habit tracker) yang mendukung kesehatan gigi, seperti kebiasaan menyikat gigi secara teratur dan tepat, menjaga konsumsi makanan, dan lain-lain. 2. Mendeteksi penyakit gigi sedini mungkin (screening kondisi gigi) untuk menentukan tindakan yang perlu diambil agar kondisinya tidak parah 3. Memperluas pengetahuan orang tua terkait kesehatan gigi sesuai keperluan anak (edukasi) sehingga dapat meningkatkan awarnesss terhadap penyakit gigi
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔧 Development
 
-Back End 
-https://github.com/ARKNravi/hackfest-be
-https://documenter.getpostman.com/view/26057207/2s9YsJAX7m
+Here is a description of our apps development
 
-Screenshot APP
+### 📓 Tech Stack
+
+List all the Tech Stack we use to build the system in this this project.
+
+| No  | Tech                  | Details                                                           |
+| --- | --------------------- | ----------------------------------------------------------------- |
+| 1   | Flutter               | To build a beautiful and usefull FrontEnd App                     |
+| 2   | Go                    | To build a fast and efficient Backend App                         |
+| 3   | Google Cloud Platform | To provide all application needs related to server infrastructure |
+
+### 🔩 Our Code Repository
+
+- [FrontEnd](https://github.com/AhmadSultanMA/UrDentist)
+- [BackEnd](https://github.com/ARKNravi/hackfest-be)
+
+### 📁 File Structure
+
+Here is our File Structure
+
+```
+
+├───lib
+│   │   main.dart
+│   │
+│   ├───data
+│   │   ├───model
+│   │   │   ├───request
+│   │   │   │   ├───forgot_password
+│   │   │   │   │       forgot_password_request.dart
+│   │   │   │   │       forgot_password_request.g.dart
+│   │   │   │   │
+│   │   │   │   ├───login
+│   │   │   │   │       login_google_request.dart
+│   │   │   │   │       login_google_request.g.dart
+│   │   │   │   │       login_request.dart
+│   │   │   │   │       login_request.g.dart
+│   │   │   │   │
+│   │   │   │   ├───profile
+│   │   │   │   │       create_profile_request.dart
+│   │   │   │   │       create_profile_request.g.dart
+│   │   │   │   │
+│   │   │   │   ├───question
+│   │   │   │   │       question_request.dart
+│   │   │   │   │       question_request.g.dart
+│   │   │   │   │
+│   │   │   │   ├───register
+│   │   │   │   │       register_request.dart
+│   │   │   │   │       register_request.g.dart
+│   │   │   │   │
+│   │   │   │   ├───reset_password
+│   │   │   │   │       reset_password_request.dart
+│   │   │   │   │       reset_password_request.g.dart
+│   │   │   │   │
+│   │   │   │   ├───verify
+│   │   │   │   │       resend_verify_request.dart
+│   │   │   │   │       resend_verify_request.g.dart
+│   │   │   │   │       verify_request.dart
+│   │   │   │   │       verify_request.g.dart
+│   │   │   │   │
+│   │   │   │   └───verify_password
+│   │   │   │           verify_password_request.dart
+│   │   │   │           verify_password_request.g.dart
+│   │   │   │
+│   │   │   └───response
+│   │   │       ├───baseResponse
+│   │   │       │       base_response.dart
+│   │   │       │       base_response.g.dart
+│   │   │       │
+│   │   │       ├───forgot_password
+│   │   │       │       forgot_password_response.dart
+│   │   │       │       forgot_password_response.g.dart
+│   │   │       │
+│   │   │       ├───login
+│   │   │       │       login_google_response.dart
+│   │   │       │       login_google_response.g.dart
+│   │   │       │       login_response.dart
+│   │   │       │       login_response.g.dart
+│   │   │       │
+│   │   │       ├───profile
+│   │   │       │       profile_response.dart
+│   │   │       │       profile_response.g.dart
+│   │   │       │
+│   │   │       ├───question
+│   │   │       │       question_response.dart
+│   │   │       │       question_response.g.dart
+│   │   │       │
+│   │   │       ├───register
+│   │   │       │       register_response.dart
+│   │   │       │       register_response.g.dart
+│   │   │       │
+│   │   │       ├───reset_password
+│   │   │       │       reset_password_response.dart
+│   │   │       │       reset_password_response.g.dart
+│   │   │       │
+│   │   │       ├───task
+│   │   │       │       task_response.dart
+│   │   │       │       task_response.g.dart
+│   │   │       │
+│   │   │       ├───verify
+│   │   │       │       resend_verify_response.dart
+│   │   │       │       resend_verify_response.g.dart
+│   │   │       │       verify_response.dart
+│   │   │       │       verify_response.g.dart
+│   │   │       │
+│   │   │       └───verify_password
+│   │   │               verify_password_response.dart
+│   │   │               verify_password_response.g.dart
+│   │   │
+│   │   └───repository
+│   │           daily_task.dart
+│   │           repository.dart
+│   │           retrofit_client.dart
+│   │           retrofit_client.g.dart
+│   │           user.dart
+│   │
+│   ├───global_widgets
+│   │       navbar.dart
+│   │       scaffold_navbar.dart
+│   │
+│   ├───presentation
+│   │   ├───account
+│   │   │       account.dart
+│   │   │
+│   │   ├───authentication
+│   │   │   ├───controller
+│   │   │   │       forgot_passCode_controller.dart
+│   │   │   │       forgot_password_controller.dart
+│   │   │   │       login_controller.dart
+│   │   │   │       register_code_controller.dart
+│   │   │   │       register_controller.dart
+│   │   │   │       reset_password_controller.dart
+│   │   │   │
+│   │   │   └───screen
+│   │   │           create_newpass.dart
+│   │   │           email_success.dart
+│   │   │           forgot_password.dart
+│   │   │           forgot_password_code.dart
+│   │   │           forgot_success.dart
+│   │   │           register.dart
+│   │   │           register_code.dart
+│   │   │           signin.dart
+│   │   │
+│   │   ├───chooseProfile
+│   │   │   │   profile_controller.dart
+│   │   │   │
+│   │   │   └───screen
+│   │   │           choose_profile.dart
+│   │   │           create_profile.dart
+│   │   │
+│   │   ├───consultation
+│   │   │       answer.dart
+│   │   │       consultation.dart
+│   │   │       create_question.dart
+│   │   │       dentist_detail.dart
+│   │   │       question_controller.dart
+│   │   │
+│   │   ├───habit
+│   │   │       habit.dart
+│   │   │       recapDetail.dart
+│   │   │
+│   │   ├───homepage
+│   │   │       homepage.dart
+│   │   │       task_controller.dart
+│   │   │
+│   │   └───splash
+│   │           introduction.dart
+│   │           splash_screen.dart
+│   │
+│   └───route
+│           app_router.dart
+│           routes.dart
+
+```
+
+| No  | File Name            | Details                                                                                                                  |
+| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 1   | hackfest-be          | A Submodule from our Backend Repo you can just klik [here](https://github.com/ARKNravi/hackfest-be) to visit   |
+| 2   | UrDentist            | A Submodule from our Frontend Repo you can just klik [here](https://github.com/AhmadSultanMA/UrDentist) to visit |
+
+## 🌟 Credit
+
+The Member of our team
+
+1. Ananda Ravi Kuntadi
+2. Ahmad Sultan 
+3. Nabila Nafilia 
+4. Noory Azyza
+
+
+## 📷 Screenshot APP
 ![WhatsApp Image 2024-01-12 at 17 49 09_81b886fe](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/b99bc214-cf33-4e3d-909e-bf9f07602888)
 ![WhatsApp Image 2024-01-12 at 17 49 09_49d9347f](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/e3e8b613-11d4-463d-bcc0-ec416c72ebdc)
 ![WhatsApp Image 2024-01-12 at 17 49 10_71f97f04](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/3aa32a89-7eb5-4d94-88f5-786c10787740)
@@ -39,3 +224,7 @@ Screenshot APP
 ![WhatsApp Image 2024-01-12 at 17 49 15_f9a80ca9](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/bf59dbe5-6845-4b04-acc2-0f8dbdf17736)
 ![WhatsApp Image 2024-01-12 at 17 49 15_f9a80ca9](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/9422739a-39c7-462f-ab3e-6654d431d0ad)
 ![WhatsApp Image 2024-01-12 at 17 50 11_85454dec](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/4616b426-cd25-423f-8f52-38ab7a8f3d5c)
+
+## 🔒License
+
+© Ravenclaw - Hackfest by Google Indonesia 2024
