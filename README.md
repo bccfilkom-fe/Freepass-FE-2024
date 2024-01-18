@@ -12,9 +12,9 @@ Application that can help prevention caries
   - [File Structure](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-file-structure)
 - [Credit](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-credit)
 - [Screenshot App](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-screenshot-app)
-  - [Splash Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-splash-screen)
-  - [Authentication Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-authentication-screen)
-  - [Homepage Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-homepage-screen)
+  - [Splash Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#splash-screen)
+  - [Authentication Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#authentication-screen)
+  - [Homepage Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#homepage-screen)
 
 ## 🔰 About
 
