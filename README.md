@@ -17,6 +17,8 @@ Application that can help prevention caries
   - [Homepage Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#homepage-screen)
   - [Habit Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#habit-screen)
   - [Consultation Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#consultation-screen)
+- [License](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#license)
+
 
 ## 🔰 About
 
