@@ -86,6 +86,8 @@ flutter:
     - assets/images/icon_consultation.svg
     - assets/images/icon_habit.svg
     - assets/images/icon_account.svg
+    - assets/images/icon_calendar.svg
+    - assets/images/icon_hospital.svg
     - assets/images/Logo.svg
     - assets/images/splash.svg
     - assets/images/task1.png
@@ -107,6 +109,7 @@ flutter:
     - assets/images/ThumbsUp.png
     - assets/images/recap.png
     - assets/images/target.png
+    - assets/images/detailDentist.png
     - assets/images/upcomingSchedule.png
     - assets/images/signIn_image.png
   # An image asset can refer to one or more resolution-specific "variants", see

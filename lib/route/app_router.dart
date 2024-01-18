@@ -5,6 +5,8 @@ import 'package:urdentist/presentation/chooseProfile/screen/create_profile.dart'
 import 'package:urdentist/presentation/consultation/answer.dart';
 import 'package:urdentist/presentation/consultation/consultation.dart';
 import 'package:urdentist/global_widgets/scaffold_navbar.dart';
+import 'package:urdentist/presentation/consultation/create_question.dart';
+import 'package:urdentist/presentation/consultation/dentist_detail.dart';
 import 'package:urdentist/presentation/habit/habit.dart';
 import 'package:urdentist/presentation/habit/recapDetail.dart';
 import 'package:urdentist/presentation/homepage/homepage.dart';
@@ -140,6 +142,16 @@ class _AppRouterState extends State<AppRouter> {
             parentNavigatorKey: _rootNavKey,
             path: Routes.ANSWER_SCREEN,
             builder: (context, _) => Answer(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.DETAILDENTIST_SCREEN,
+            builder: (context, _) => DetailDentist(),
+          ),
+          GoRoute(
+            parentNavigatorKey: _rootNavKey,
+            path: Routes.CREATEQUESTION_SCREEN,
+            builder: (context, _) => CreateQuestion(),
           ),
         ],
       ),

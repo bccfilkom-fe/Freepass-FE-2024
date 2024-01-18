@@ -22,7 +22,7 @@ class _RecapDetailState extends State<RecapDetail> {
           centerTitle: true,
           title: Text(
             'Jul - Dec 2023',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
           ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),

@@ -5,6 +5,7 @@ import 'package:urdentist/data/model/request/forgot_password/forgot_password_req
 
 import 'package:urdentist/data/model/request/login/login_request.dart';
 import 'package:urdentist/data/model/request/profile/create_profile_request.dart';
+import 'package:urdentist/data/model/request/question/question_request.dart';
 import 'package:urdentist/data/model/request/register/register_request.dart';
 import 'package:urdentist/data/model/request/reset_password/reset_password_request.dart';
 import 'package:urdentist/data/model/request/verify/verify_request.dart';
@@ -307,6 +308,27 @@ class Repository {
   }
 
   // Task
+
+  void createQuestion(
+    int profileId,
+    String tag,
+    String question, {
+    required Function(String) onSuccess,
+    required Function(String) onFailed,
+  }) {
+    client
+        .createQuestion(
+            profileId, QuestionRequest(tag: tag, question: question))
+        .then((value) {
+      if (value.message == "Question created successfully") {
+        onSuccess(value.message);
+      } else {
+        onFailed('Failed to create');
+      }
+    }).catchError((msg) {
+      onFailed(msg);
+    });
+  }
 
   void getQuestionAll({
     required Function(List<QuestionResponse>) onSuccess,

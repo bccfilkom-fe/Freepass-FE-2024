@@ -39,7 +39,7 @@ List<DailyTask> globalDailyTasks = [
     'Brush teeth after breakfast',
     false,
     6,
-    11,
+    10,
   ),
   DailyTask(0, 2, 'assets/images/task2.png', 'Brush teeth for 2 minutes', false,
       1, 23),

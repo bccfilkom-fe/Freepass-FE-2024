@@ -5,6 +5,7 @@ import 'package:urdentist/data/model/request/forgot_password/forgot_password_req
 // import 'package:urdentist/data/model/request/login/login_google_request.dart';
 import 'package:urdentist/data/model/request/login/login_request.dart';
 import 'package:urdentist/data/model/request/profile/create_profile_request.dart';
+import 'package:urdentist/data/model/request/question/question_request.dart';
 import 'package:urdentist/data/model/request/register/register_request.dart';
 import 'package:urdentist/data/model/request/reset_password/reset_password_request.dart';
 import 'package:urdentist/data/model/request/verify/verify_request.dart';
@@ -94,6 +95,12 @@ abstract class RetrofitClient {
   );
 
   // Question
+
+  @POST("/profile/{profileId}/question")
+  Future<BaseResponse> createQuestion(
+    @Path("profileId") int profileId,
+    @Body() QuestionRequest request,
+  );
 
   @GET("/questions")
   Future<List<QuestionResponse>> getQuestionAll();

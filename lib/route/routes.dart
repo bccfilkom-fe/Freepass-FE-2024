@@ -19,4 +19,6 @@ class Routes {
   static const CHOOSEPROFILE_SCREEN = "/chooseprofile";
   static const CREATEPROFILE_SCREEN = "/createprofile";
   static const ANSWER_SCREEN = "/answer";
+  static const DETAILDENTIST_SCREEN = "/detaildentist";
+  static const CREATEQUESTION_SCREEN = "/createquestion";
 }

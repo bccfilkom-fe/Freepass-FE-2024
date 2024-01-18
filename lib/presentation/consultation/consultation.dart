@@ -170,12 +170,18 @@ class _ConsultationState extends State<Consultation> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                margin: EdgeInsets.only(left: width * 0.02),
-                                alignment: Alignment.center,
-                                child: Icon(
-                                  Icons.add,
-                                  size: width * 0.1,
+                              GestureDetector(
+                                onTap: () {
+                                  GoRouter.of(context)
+                                      .go(Routes.CREATEQUESTION_SCREEN);
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(left: width * 0.02),
+                                  alignment: Alignment.center,
+                                  child: Icon(
+                                    Icons.add,
+                                    size: width * 0.1,
+                                  ),
                                 ),
                               )
                             ],
@@ -626,141 +632,156 @@ class _ConsultationState extends State<Consultation> {
                               SizedBox(
                                 height: height * 0.015,
                               ),
-                              Container(
-                                margin: EdgeInsets.only(bottom: height * 0.01),
-                                padding: const EdgeInsets.only(right: 16),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      spreadRadius: 1,
-                                      blurRadius: 1.2,
-                                      offset: Offset(0, 0.2),
-                                    ),
-                                  ],
-                                ),
-                                child: Row(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        bottomLeft: Radius.circular(10),
+                              GestureDetector(
+                                onTap: () {
+                                  GoRouter.of(context)
+                                      .go(Routes.DETAILDENTIST_SCREEN);
+                                },
+                                child: Container(
+                                  margin:
+                                      EdgeInsets.only(bottom: height * 0.01),
+                                  padding: const EdgeInsets.only(right: 16),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10)),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.2),
+                                        spreadRadius: 1,
+                                        blurRadius: 1.2,
+                                        offset: Offset(0, 0.2),
                                       ),
-                                      child: Image.asset(
-                                        'assets/images/drLuna2.png',
-                                        width: width * 0.25,
+                                    ],
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          bottomLeft: Radius.circular(10),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/drLuna2.png',
+                                          width: width * 0.25,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(width: width * 0.03),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Dr Luna Claw',
-                                            style: TextStyle(
-                                                fontSize: width * 0.05,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          // SizedBox(
-                                          //   height: height * 0.005,
-                                          // ),
-                                          Text(
-                                            'Saiful Anwar Hospital',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: Colors.grey.shade700,
-                                              fontSize: width * 0.03,
+                                      SizedBox(width: width * 0.03),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Dr Luna Claw',
+                                              style: TextStyle(
+                                                  fontSize: width * 0.05,
+                                                  fontWeight: FontWeight.bold),
                                             ),
-                                          ),
-                                          SizedBox(height: height * 0.01),
-                                          Row(
-                                            children: [
-                                              Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 3,
-                                                        horizontal: 8),
-                                                decoration: BoxDecoration(
-                                                    color: Colors.blue.shade50,
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  'Paediatric',
-                                                  style: TextStyle(
-                                                      fontSize: width * 0.03,
+                                            // SizedBox(
+                                            //   height: height * 0.005,
+                                            // ),
+                                            Text(
+                                              'Saiful Anwar Hospital',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Colors.grey.shade700,
+                                                fontSize: width * 0.03,
+                                              ),
+                                            ),
+                                            SizedBox(height: height * 0.01),
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 3,
+                                                      horizontal: 8),
+                                                  decoration: BoxDecoration(
                                                       color:
-                                                          Colors.blue.shade600,
+                                                          Colors.blue.shade50,
+                                                      borderRadius:
+                                                          const BorderRadius
+                                                              .all(
+                                                              Radius.circular(
+                                                                  10))),
+                                                  child: Text(
+                                                    'Paediatric',
+                                                    style: TextStyle(
+                                                        fontSize: width * 0.03,
+                                                        color: Colors
+                                                            .blue.shade600,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: width * 0.02,
+                                                ),
+                                                Icon(
+                                                  Icons.star,
+                                                  color: Colors.yellow,
+                                                  size: width * 0.055,
+                                                ),
+                                                SizedBox(
+                                                  width: width * 0.01,
+                                                ),
+                                                Text(
+                                                  '4.9',
+                                                  style: TextStyle(
+                                                      fontSize: width * 0.04,
+                                                      color:
+                                                          Colors.grey.shade600,
                                                       fontWeight:
                                                           FontWeight.w500),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: width * 0.02,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.yellow,
-                                                size: width * 0.055,
-                                              ),
-                                              SizedBox(
-                                                width: width * 0.01,
-                                              ),
-                                              Text(
-                                                '4.9',
-                                                style: TextStyle(
-                                                    fontSize: width * 0.04,
-                                                    color: Colors.grey.shade600,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Container(
-                                                alignment: Alignment.bottomLeft,
-                                                child: Text(
-                                                  'start from',
-                                                  style: TextStyle(
-                                                    fontSize: width * 0.03,
-                                                    color: Colors.grey.shade600,
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: height * 0.01,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Container(
+                                                  alignment:
+                                                      Alignment.bottomLeft,
+                                                  child: Text(
+                                                    'start from',
+                                                    style: TextStyle(
+                                                      fontSize: width * 0.03,
+                                                      color:
+                                                          Colors.grey.shade600,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: width * 0.02,
-                                              ),
-                                              Container(
-                                                alignment: Alignment.bottomLeft,
-                                                child: Text(
-                                                  'Rp 25.000',
-                                                  style: TextStyle(
-                                                    fontSize: width * 0.035,
-                                                    color: Colors.blue.shade700,
-                                                    fontWeight: FontWeight.bold,
+                                                SizedBox(
+                                                  width: width * 0.02,
+                                                ),
+                                                Container(
+                                                  alignment:
+                                                      Alignment.bottomLeft,
+                                                  child: Text(
+                                                    'Rp 25.000',
+                                                    style: TextStyle(
+                                                      fontSize: width * 0.035,
+                                                      color:
+                                                          Colors.blue.shade700,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
+                              )
                             ],
                           ),
                         )
