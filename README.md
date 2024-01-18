@@ -12,7 +12,6 @@ Application that can help prevention caries
   - [File Structure](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-file-structure)
 - [Credit](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-credit)
 - [Screenshot App](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-screenshot-app)
-- [License](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-license)
 
 ## 🔰 About
 
