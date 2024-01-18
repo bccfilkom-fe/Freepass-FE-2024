@@ -10,13 +10,13 @@ Application that can help prevention caries
   - [Tech Stack](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-tech-stack)
   - [Our Code Repository](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-our-code-repository)
   - [File Structure](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-file-structure)
-- [Credit](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-credit)
 - [Screenshot App](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-screenshot-app)
   - [Splash Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#splash-screen)
   - [Authentication Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#authentication-screen)
   - [Homepage Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#homepage-screen)
   - [Habit Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#habit-screen)
   - [Consultation Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#consultation-screen)
+- [Credit](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-credit)
 - [License](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#license)
 
 
@@ -207,15 +207,6 @@ Here is our File Structure
 | 1   | hackfest-be          | A Submodule from our Backend Repo you can just klik [here](https://github.com/ARKNravi/hackfest-be) to visit   |
 | 2   | UrDentist            | A Submodule from our Frontend Repo you can just klik [here](https://github.com/AhmadSultanMA/UrDentist) to visit |
 
-## 🌟 Credit
-
-The Member of our team
-
-1. Ananda Ravi Kuntadi
-2. Ahmad Sultan 
-3. Nabila Nafilia 
-4. Noory Azyza
-
 
 ## 📷 Screenshot APP
 
@@ -254,6 +245,17 @@ The Member of our team
 ![WhatsApp Image 2024-01-18 at 19 20 06_21b977e9](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/20dae082-746a-4d35-997b-6b16a83de624)
 ![WhatsApp Image 2024-01-18 at 19 20 06_3225201b](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/6b69d25f-37a0-4dd1-b2db-9ff53356772b)
 ![WhatsApp Image 2024-01-18 at 19 20 06_595ea71c](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/cdbe4d21-f168-4b9b-b0c1-93e75eb305ef)
+
+
+## 🌟 Credit
+
+The Member of our team
+
+1. Ananda Ravi Kuntadi
+2. Ahmad Sultan 
+3. Nabila Nafilia 
+4. Noory Azyza
+
 
 ## 🔒License
 
