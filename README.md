@@ -6,6 +6,13 @@ Application that can help prevention caries
 
 ## 📒 Index
 - [About](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-About)
+- [Developmet](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-Development)
+-- [Tech Stack](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-tech-stack)
+-- [Our Code Repository](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-our-code-repository)
+-- [File Structure](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-file-structure)
+- [Credit](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-credit)
+- [Screenshot App](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-screenshot-app)
+- [License](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-license)
 
 ## 🔰 About
 
