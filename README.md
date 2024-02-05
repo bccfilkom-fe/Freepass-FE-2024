@@ -59,12 +59,15 @@ Make an application with requirements as below:
 
 ## ‼️ Important Notes
 - Challenges submitted must be your own work. Code obtained from other sources (websites, books, forums, GitHub, etc.) should only be used for reference.
-- The deadline was expected **before February 12, 2024**. There is an interview after you did a pull request. Please, prepare your self for interview, our team will contact you immediately. During this time, it may change. Consider following our social media on [Instagram](https://www.instagram.com/bccfilkom/) or LINE Official Account (@obw9635b) for further information.
--  you have any questions related to this challenge?? Feel free to contact us via [WhatsApp](wa.me/+62881024200397)
+- The deadline was expected **before 23:59 on February 10, 2024**. There is an interview after you did a pull request. Please, prepare your self for interview, our team will contact you immediately. During this time, it may change. Consider following our social media on [Instagram](https://www.instagram.com/bccfilkom/) or LINE Official Account (@obw9635b) for further information.
+-  you have any questions related to this challenge?? Feel free to contact us via [WhatsApp](https://wa.me/+62881024200397)
 <br />
 <br />
-Well that's all from us a lot right? if you still have some question dont hesitate to contact us via the contact above. This is not the only way to join us Good Luck!
+Alright, that's all from us. If you've got any questions, feel free to hit us up using the contact info above
 <br />
 <br />
 <img src="https://user-images.githubusercontent.com/74038190/213911167-6bc9ef46-2950-481c-a03c-189f9506083b.gif" width="100%">
+
+> and btw this is not the only way to join us so good luck!
+<br />
 ~ FE BCC 2024
