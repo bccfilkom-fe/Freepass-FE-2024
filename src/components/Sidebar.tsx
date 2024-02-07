@@ -27,14 +27,22 @@ const Sidebar = ({ logout }: { logout: () => void }) => {
 
   return (
     <div
-      className="relative top-2 left-0 shadow-2xl px-6 h-screen"
+      className={`fixed top-2 left-0 shadow-2xl h-screen z-100 bg-white ${
+        isOpen ? "px-8" : "px-0"
+      }`}
       ref={sidebarRef}
     >
-      <FaBars size={30} onClick={handleSidebarOpen} className="" />
+      <FaBars
+        size={30}
+        onClick={handleSidebarOpen}
+        className={`fixed m-6 ${
+          isOpen ? "left-0" : "px-0"
+        }`}
+      />
       <div
         className={`${
           isOpen ? "flex" : "hidden"
-        } flex-col items-center justify-between py-10 px-6 gap-8`}
+        } flex-col items-center justify-between mt-20 py-10 px-6 gap-8`}
       >
         <RxPerson
           size={40}

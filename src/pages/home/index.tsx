@@ -1,7 +1,11 @@
+import HeroHome from "./HeroHome";
+import Playlist from "./Playlist";
+
 export default function Home() {
   return (
-    <>
-      <h1>ini home</h1>
-    </>
+    <main className="flex flex-col gap-20">
+      <HeroHome />
+      <Playlist />
+    </main>
   );
 }

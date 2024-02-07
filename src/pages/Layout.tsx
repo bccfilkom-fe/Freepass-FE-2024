@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import Login from "./Login";
 
 export default function Layout() {
-    const { token, handleLogout } = useAuth();
+  const { token, handleLogout } = useAuth();
   useEffect(() => {}, [token]);
 
   return (
@@ -16,7 +16,10 @@ export default function Layout() {
           <Navbar logout={handleLogout} />
           <div className="flex items-start">
             <Sidebar logout={handleLogout} />
-            <Outlet/>
+            <main className="container">
+              {" "}
+              <Outlet />
+            </main>
           </div>
         </>
       ) : (
@@ -24,5 +27,4 @@ export default function Layout() {
       )}
     </>
   );
-};
-
+}
