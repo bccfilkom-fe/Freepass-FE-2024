@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import Button from "./Button";
 import { RxPerson } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
+import { useOnClickOutside } from "@hooks/UseOnClickOutside";
 
 const Sidebar = ({ logout }: { logout: () => void }) => {
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const location = useLocation();
   const isActive = (path: any) => {
@@ -19,8 +21,15 @@ const Sidebar = ({ logout }: { logout: () => void }) => {
     setIsOpen(false);
   }, [location]);
 
+  useOnClickOutside(sidebarRef, () => {
+    setIsOpen(false);
+  });
+
   return (
-    <div className="relative top-2 left-0 shadow-2xl px-6 h-screen">
+    <div
+      className="relative top-2 left-0 shadow-2xl px-6 h-screen"
+      ref={sidebarRef}
+    >
       <FaBars size={30} onClick={handleSidebarOpen} className="" />
       <div
         className={`${
