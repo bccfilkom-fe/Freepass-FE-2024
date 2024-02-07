@@ -1,12 +1,28 @@
 import Navbar from "@components/Navbar";
+import Sidebar from "@components/Sidebar";
+import { useAuth } from "@hooks/UseAuth";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import Login from "./Login";
 
 export default function Layout() {
-    return (
-      <>
-        <Navbar/>
-        <Outlet/>
-      </>
-    );
-  }
-  
+    const { token, handleLogout } = useAuth();
+  useEffect(() => {}, [token]);
+
+  return (
+    <>
+      {token ? (
+        <>
+          <Navbar logout={handleLogout} />
+          <div className="flex items-start">
+            <Sidebar logout={handleLogout} />
+            <Outlet/>
+          </div>
+        </>
+      ) : (
+        <Login />
+      )}
+    </>
+  );
+};
+
