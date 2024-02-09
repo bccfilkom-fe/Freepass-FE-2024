@@ -1,5 +1,6 @@
 import Card from "@components/Card";
 import GridContainer from "@components/GridContainer";
+import SkeletonCard from "@components/loading/SkeletonCard";
 import { Item } from "@models/playlist/Item";
 import { getUserPlaylist } from "@services/api/playlist/getPlaylist";
 import { useQuery } from "@tanstack/react-query";
@@ -22,19 +23,19 @@ export default function Playlist() {
       </div>
 
       <GridContainer>
-        {isLoading ? (
-          <div>isLoading</div>
-        ) : (
-          data?.map((playlistItem: Item) => (
-            <Card
-              type="playlist"
-              key={playlistItem.id}
-              id={playlistItem.id}
-              image={playlistItem.images[0].url}
-              name={playlistItem.name}
-            />
-          ))
-        )}
+        {isLoading
+          ? Array.from({ length: 4 }, (_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          : data?.map((playlistItem: Item) => (
+              <Card
+                type="playlist"
+                key={playlistItem.id}
+                id={playlistItem.id}
+                image={playlistItem.images[0].url}
+                name={playlistItem.name}
+              />
+            ))}
       </GridContainer>
     </section>
   );

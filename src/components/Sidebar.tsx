@@ -27,7 +27,7 @@ const Sidebar = ({ logout }: { logout: () => void }) => {
 
   return (
     <div
-      className={`fixed top-2 left-0 shadow-2xl h-screen z-100 bg-white ${
+      className={`fixed top-0 left-0 shadow-2xl h-screen z-100 bg-white ${
         isOpen ? "px-8" : "px-0"
       }`}
       ref={sidebarRef}

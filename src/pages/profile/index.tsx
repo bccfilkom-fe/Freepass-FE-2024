@@ -14,13 +14,15 @@ export default function Profile() {
     queryKey: [window.localStorage.getItem("token")],
   });
   console.log(data);
+  
 
   return (
     <section className="container mt-20 flex justify-center">
       <div className="shadow-lg px-32 flex flex-col py-12 items-start gap-12">
         <h1 className="text-center">Your Profile</h1>
-        <div>
-          <h5>Username: {data?.display_name}</h5>
+        <div className=" flex gap-4 flex-col">
+          <h4>Username: {data?.display_name}</h4>
+          <h4>Followers: {data?.followers.total}</h4>
         </div>
       </div>
     </section>
