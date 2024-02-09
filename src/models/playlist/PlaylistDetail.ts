@@ -1,12 +1,11 @@
-import { Item } from "./Item";
-
-export interface Playlist {
+export interface PlaylistDetail {
   href: string;
   limit: number;
   next: string;
   offset: number;
   previous: string;
   total: number;
-  items: Item[];
+  items: [
+    
+  ];
 }
-

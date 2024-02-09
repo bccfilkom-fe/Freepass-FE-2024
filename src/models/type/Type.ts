@@ -1,1 +1,1 @@
-export type Type= "album"|"artist"
+export type Type= "album"|"artist"|"user"|"track"

@@ -20,3 +20,22 @@ export const getUserPlaylist = async ({
     console.error("Error:", error.message);
   }
 };
+
+export const getUserPlaylistById = async ({
+  url,
+  token,
+}: {
+  url: string;
+  token: string | null;
+}) => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}${url}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data as any;
+  } catch (error: any) {
+    console.error("Error:", error.message);
+  }
+};
