@@ -30,7 +30,9 @@ const Playlist = () => {
           <div>isLoading</div>
         ) : (
           data?.map((playlistItem: Item) => (
-            <Card key={playlistItem.id}
+            <Card
+              type="playlist"
+              key={playlistItem.id}
               id={playlistItem.id}
               image={playlistItem.images[0].url}
               name={playlistItem.name}

@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 const PlaylistDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading } = useQuery({
     queryFn: async () => {
       await wait(2000);
       const token = window.localStorage.getItem("token");
@@ -19,48 +19,41 @@ const PlaylistDetails = () => {
 
   return (
     <>
-      {isError ? <div>error</div> : null}
       {isLoading ? (
         <div>loading..</div>
       ) : (
         <div className="shadow-xl">
           <div className="flex flex-col md:flex-row gap-6 p-20">
-            {data && (
-              <>
-                <img src={data?.images[1].url} alt="" />
-                <div className="flex flex-col justify-end gap-2">
-                  <h1>{data?.name}</h1>
-                  <span>Owned By: {data?.owner.display_name}</span>
-                  <p>{data.tracks.total} song</p>
-                </div>
-              </>
-            )}
+            <img src={data?.images[0].url} alt="" className="w-96 h-96"/>
+            <div className="flex flex-col justify-end gap-2">
+              <h1>{data?.name}</h1>
+              <span>Owned By: {data?.owner.display_name}</span>
+              <p>{data?.tracks.total} song</p>
+            </div>
           </div>
           <div className="p-20">
-            {data && (
-              <table className="min-w-full">
-                <thead>
-                  <tr>
-                    <th className="text-left pr-4">Song</th>
-                    <th className="md:text-center">Album</th>
-                    <th className="text-center hidden md:block">Duration</th>
+            <table className="min-w-full">
+              <thead>
+                <tr>
+                  <th className="text-left pr-4">Song</th>
+                  <th className="md:text-center">Album</th>
+                  <th className="text-center hidden md:block">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.tracks.items.map((tracksItem: ItemById) => (
+                  <tr key={tracksItem.track.id}>
+                    <td className="pr-4">{tracksItem.track.name}</td>
+                    <td className="text-right md:text-center py-2">
+                      {tracksItem.track.album.name}
+                    </td>
+                    <td className="text-center hidden md:block">
+                      {convertTime(tracksItem.track.duration_ms)}
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {data.tracks.items.map((tracksItem: ItemById) => (
-                    <tr key={tracksItem.track.id}>
-                      <td className="pr-4">{tracksItem.track.name}</td>
-                      <td className="text-right md:text-center py-2">
-                        {tracksItem.track.album.name}
-                      </td>
-                      <td className="text-center hidden md:block">
-                        {convertTime(tracksItem.track.duration_ms)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}

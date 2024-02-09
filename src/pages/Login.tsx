@@ -6,7 +6,7 @@ import {
   RESPONSE_TYPE,
 } from "@services/api/env";
 
-import spotify from "@assets/spotify-logo.png";
+import spotify from "@assets/spotify-logo.png"
 
 const Login = () => {
   const authEndPoint = AUTH_ENDPOINT;
