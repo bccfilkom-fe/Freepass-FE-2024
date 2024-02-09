@@ -1,4 +1,5 @@
 import Button from "@components/Button";
+import Card from "@components/Card";
 import GridContainer from "@components/GridContainer";
 import { Item } from "@models/playlist/Item";
 import { getUserPlaylist } from "@services/api/playlist/getPlaylist";
@@ -29,14 +30,11 @@ const Playlist = () => {
           <div>isLoading</div>
         ) : (
           data?.map((playlistItem: Item) => (
-            <div key={playlistItem.id} className="flex flex-col gap-2">
-              <img
-                src={playlistItem.images[0].url}
-                alt=""
-                className="w-96 h-96"
-              />
-              <h3>{playlistItem.name}</h3>
-            </div>
+            <Card key={playlistItem.id}
+              id={playlistItem.id}
+              image={playlistItem.images[0].url}
+              name={playlistItem.name}
+            />
           ))
         )}
       </GridContainer>

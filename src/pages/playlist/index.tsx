@@ -1,9 +1,9 @@
+import Card from "@components/Card";
 import GridContainer from "@components/GridContainer";
 import { Item } from "@models/playlist/Item";
 import { getUserPlaylist } from "@services/api/playlist/getPlaylist";
 import { useQuery } from "@tanstack/react-query";
 import { wait } from "@utils/Wait";
-import { Link } from "react-router-dom";
 
 export default function Playlist() {
   const { data, isLoading } = useQuery({
@@ -26,19 +26,11 @@ export default function Playlist() {
           <div>isLoading</div>
         ) : (
           data?.map((playlistItem: Item) => (
-            <div
-              key={playlistItem.id}
-              className="flex flex-col gap-2 cursor-pointer"
-            >
-              <Link to={`/playlist/${playlistItem.id}`}>
-                <img
-                  src={playlistItem.images[0].url}
-                  alt=""
-                  className="w-96 h-96"
-                />
-                <h3>{playlistItem.name}</h3>
-              </Link>
-            </div>
+            <Card key={playlistItem.id}
+              id={playlistItem.id}
+              image={playlistItem.images[0].url}
+              name={playlistItem.name}
+            />
           ))
         )}
       </GridContainer>

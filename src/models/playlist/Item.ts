@@ -2,6 +2,8 @@ import { ExternalUrls } from "@models/ExternalUrls";
 import { Image } from "@models/Image";
 import { Owner } from "./Owner";
 import { Tracks } from "./Tracks";
+import { AddedBy } from "./AddedBy";
+import { TrackById } from "./Track";
 
 export interface Item {
   collaborative: boolean;
@@ -17,4 +19,11 @@ export interface Item {
   tracks: Tracks;
   type: string;
   uri: string;
+}
+
+export interface ItemById {
+  added_at: string;
+  added_by: AddedBy;
+  is_local: boolean;
+  track: TrackById;
 }

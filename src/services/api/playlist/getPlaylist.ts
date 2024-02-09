@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../env";
 import { Item } from "@models/playlist/Item";
+import { PlaylistById } from "@models/playlist/PlaylistById";
 
 export const getUserPlaylist = async ({
   url,
@@ -34,7 +35,8 @@ export const getUserPlaylistById = async ({
         Authorization: `Bearer ${token}`,
       },
     });
-    return data as any;
+    console.log(`${BASE_URL}${url}`);
+    return data as PlaylistById;
   } catch (error: any) {
     console.error("Error:", error.message);
   }

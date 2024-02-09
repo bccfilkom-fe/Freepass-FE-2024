@@ -5,8 +5,8 @@ import musixLogo from "@assets/icons/musix-logo.png";
 
 const Navbar = ({ logout }: { logout: () => void }) => {
   return (
-    <nav className="container flex justify-between py-4 items-center">
-      <Link to="/" className="flex items-center gap-4">
+    <nav className="container flex justify-center md:justify-between py-4 items-center">
+      <Link to="/" className="items-center gap-4 hidden md:flex">
         <img src={musixLogo} alt="logo" className="w-10 h-10"/>
         <h3>Musix</h3>
       </Link>
