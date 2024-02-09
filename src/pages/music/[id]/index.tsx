@@ -23,23 +23,28 @@ const TrackDetails = () => {
         <SkeletonCardDetail />
       ) : (
         <div className="shadow-xl">
-          <div className="flex flex-col md:flex-row gap-6 p-20">
-            <img src={data?.album.images[0].url} alt="" className="w-96 h-96" />
-            <div className="flex flex-col justify-end gap-2">
-              <h1 className="mb-6">{data?.name}</h1>
-              <div className="flex flex-col gap-3">
-                <span>
-                  Artists:
-                  {data?.artists.map((artist) => artist.name).join(", ")}
-                </span>
-                <span>
-                  Album:
-                  {data?.album.name}
-                </span>
+          <div className="flex flex-col md:flex-row gap-6 p-20 items-center justify-between">
+            <div className="flex gap-8">
+              <img
+                src={data?.album.images[0].url}
+                alt=""
+                className="w-96 h-96"
+              />
+              <div className="flex flex-col justify-end gap-2">
+                <h1 className="mb-6">{data?.name}</h1>
+                <div className="flex flex-col gap-3">
+                  <span>
+                    Artists:
+                    {data?.artists.map((artist) => artist.name).join(", ")}
+                  </span>
+                  <span>
+                    Album:
+                    {data?.album.name}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="p-20">
+
             <Button variant="default">
               <a href={data?.uri} target="_blank" rel="noopener noreferrer">
                 Play on Spotify

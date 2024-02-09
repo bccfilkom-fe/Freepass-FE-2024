@@ -15,6 +15,7 @@ const LoginCard = ({
 }) => {
   const scopes = [
     "playlist-modify-private",
+    "playlist-modify-public",
     "user-read-recently-played",
     "user-library-modify",
     "user-top-read",
