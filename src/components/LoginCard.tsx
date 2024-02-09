@@ -21,9 +21,13 @@ const LoginCard = ({
     "user-follow-modify",
     "streaming",
   ];
-  
+
   const delimiter = "%20";
   const scopesParams = scopes.join(delimiter);
+
+  console.log(
+    `${authEndPoint}?client_id=${clientId}&scope=${scopesParams}&redirect_uri=${redirectUri}&response_type=${responseType}&show_dialog=true`
+  );
   return (
     <div className="py-28 px-10 gap-20 text-center shadow-xl rounded-md max-w-96 flex flex-col justify-center">
       <h3>Login With Your Spotify Account</h3>

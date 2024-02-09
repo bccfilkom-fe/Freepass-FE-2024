@@ -17,7 +17,6 @@ export default function Layout() {
           <div className="flex items-start">
             <Sidebar logout={handleLogout} />
             <main className="container">
-              {" "}
               <Outlet />
             </main>
           </div>
