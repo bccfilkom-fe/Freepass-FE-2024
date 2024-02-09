@@ -1,3 +1,5 @@
+import SkeletonCardDetail from "@components/loading/SkeletonCardDetail";
+import SkeletonList from "@components/loading/SkeletonList";
 import { ItemById } from "@models/playlist/Item";
 import { getUserPlaylistById } from "@services/api/playlist/getPlaylist";
 import { useQuery } from "@tanstack/react-query";
@@ -20,11 +22,14 @@ const PlaylistDetails = () => {
   return (
     <>
       {isLoading ? (
-        <div>loading..</div>
+        <div className="flex flex-col gap-4">
+          <SkeletonCardDetail />
+          <SkeletonList />
+        </div>
       ) : (
         <div className="shadow-xl">
           <div className="flex flex-col md:flex-row gap-6 p-20">
-            <img src={data?.images[0].url} alt="" className="w-96 h-96"/>
+            <img src={data?.images[0].url} alt="" className="w-96 h-96" />
             <div className="flex flex-col justify-end gap-2">
               <h1>{data?.name}</h1>
               <span>Owned By: {data?.owner.display_name}</span>
