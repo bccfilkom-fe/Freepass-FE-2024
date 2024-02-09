@@ -1,9 +1,9 @@
 import { getUserResponse } from "@services/api/user/GetUserResponse";
 import { useQuery } from "@tanstack/react-query";
+import { wait } from "@utils/Wait";
 
 export default function Profile() {
-  const wait = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms));
+  
 
   const { data } = useQuery({
     queryFn: async () => {
@@ -13,7 +13,6 @@ export default function Profile() {
     },
     queryKey: [window.localStorage.getItem("token")],
   });
-  console.log(data);
   
 
   return (

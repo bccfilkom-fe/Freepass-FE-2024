@@ -15,7 +15,6 @@ const Recommendation = () => {
     },
     queryKey: ["recom"],
   });
-  console.log(data);
 
   return (
     <section className="container">

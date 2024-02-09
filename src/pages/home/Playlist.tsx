@@ -17,7 +17,6 @@ const Playlist = () => {
     },
     queryKey: [window.localStorage.getItem("token")],
   });
-  console.log(data);
   return (
     <section className="container flex flex-col gap-16">
       <div className="flex justify-between">
@@ -36,7 +35,11 @@ const Playlist = () => {
                 type="playlist"
                 key={playlistItem.id}
                 id={playlistItem.id}
-                image={playlistItem.images[0].url}
+                image={
+                  playlistItem?.images?.length && playlistItem.images.length > 0
+                    ? playlistItem.images[0].url
+                    : "https://placehold.jp/400x400.png"
+                }
                 name={playlistItem.name}
               />
             ))}

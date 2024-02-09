@@ -1,5 +1,5 @@
 import Button from "@components/Button";
-import FormModal from "@components/FormModal";
+import FormModal from "@components/FormPlaylistModal";
 import SkeletonCardDetail from "@components/loading/SkeletonCardDetail";
 import SkeletonList from "@components/loading/SkeletonList";
 import { ItemById } from "@models/playlist/Item";
@@ -41,7 +41,15 @@ const PlaylistDetails = () => {
         <div className="shadow-xl">
           <div className="flex flex-col md:flex-row gap-6 p-20 justify-between">
             <div className="flex flex-col md:flex-row gap-4">
-              <img src={data?.images[0].url} alt="" className="w-96 h-96" />
+              <img
+                src={
+                  data?.images?.length && data.images.length > 0
+                    ? data.images[0].url
+                    : "https://placehold.jp/400x400.png"
+                }
+                alt=""
+                className="w-96 h-96"
+              />
               <div className="flex flex-col justify-end gap-2">
                 <h1>{data?.name}</h1>
                 <span>Owned By: {data?.owner.display_name}</span>
@@ -92,7 +100,8 @@ const PlaylistDetails = () => {
       )}
       {isModalOpen && (
         <FormModal
-          text="Are You Sure Want to Edit This Playlist?"
+          type="put"
+          text="Edit Playlist"
           onClose={toggleModal}
           id={data?.id ?? ""}
         />
