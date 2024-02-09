@@ -61,7 +61,7 @@ abstract class RetrofitClient {
     @Body() VerifyPassword request,
   );
 
-  @POST("/reset-password")
+  @PUT("/reset-password")
   Future<ResetPasswordResponse> resetPassword(
     @Body() ResetPassword request,
   );

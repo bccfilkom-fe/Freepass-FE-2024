@@ -197,7 +197,7 @@ class _RetrofitClient implements RetrofitClient {
     _data.addAll(request.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ResetPasswordResponse>(Options(
-      method: 'POST',
+      method: 'PUT',
       headers: _headers,
       extra: _extra,
     )
