@@ -1,8 +1,9 @@
+import AllRecommendation from "./AllRecommendation";
+
 export default function Music() {
-    return (
-      <>
-        <h1>ini music</h1>
-      </>
-    );
-  }
-  
+  return (
+    <>
+      <AllRecommendation />
+    </>
+  );
+}
