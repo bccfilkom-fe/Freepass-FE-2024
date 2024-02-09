@@ -5,6 +5,7 @@ Application that can help prevention caries
 <u>**By Ravenclaw**</u>
 
 ## 📒 Index
+
 - [About](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-About)
 - [Developmet](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-Development)
   - [Tech Stack](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-tech-stack)
@@ -18,7 +19,6 @@ Application that can help prevention caries
   - [Consultation Screen](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#consultation-screen)
 - [Credit](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#-credit)
 - [License](https://github.com/AhmadSultanMA/UrDentist?tab=readme-ov-file#license)
-
 
 ## 🔰 About
 
@@ -202,21 +202,21 @@ Here is our File Structure
 
 ```
 
-| No  | File Name            | Details                                                                                                                  |
-| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| 1   | hackfest-be          | A Submodule from our Backend Repo you can just klik [here](https://github.com/ARKNravi/hackfest-be) to visit   |
-| 2   | UrDentist            | A Submodule from our Frontend Repo you can just klik [here](https://github.com/AhmadSultanMA/UrDentist) to visit |
-
+| No  | File Name   | Details                                                                                                          |
+| --- | ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| 1   | hackfest-be | A Submodule from our Backend Repo you can just klik [here](https://github.com/ARKNravi/hackfest-be) to visit     |
+| 2   | UrDentist   | A Submodule from our Frontend Repo you can just klik [here](https://github.com/AhmadSultanMA/UrDentist) to visit |
 
 ## 📷 Screenshot APP
 
 ### Splash Screen
+
 ![WhatsApp Image 2024-01-12 at 17 49 09_81b886fe](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/b99bc214-cf33-4e3d-909e-bf9f07602888)
 ![WhatsApp Image 2024-01-12 at 17 49 09_49d9347f](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/e3e8b613-11d4-463d-bcc0-ec416c72ebdc)
 ![WhatsApp Image 2024-01-12 at 17 49 10_71f97f04](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/3aa32a89-7eb5-4d94-88f5-786c10787740)
 
-
 ### Authentication Screen
+
 ![WhatsApp Image 2024-01-12 at 17 49 10_d5dd3943](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/16eed038-bf05-4b84-b657-291a70a08b1a)
 ![WhatsApp Image 2024-01-12 at 17 49 11_57407cc1](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/035c24bc-7d9d-4462-ba17-a8873f77e5c8)
 ![WhatsApp Image 2024-01-12 at 17 49 11_5e7f07aa](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/5995fd67-e432-4a6c-ad9d-54763280b25e)
@@ -228,34 +228,32 @@ Here is our File Structure
 ![WhatsApp Image 2024-01-12 at 17 49 14_c68afa37](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/80e12438-0f6d-4086-8e82-998ce13ee7e9)
 ![WhatsApp Image 2024-01-12 at 17 49 14_36eecd19](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/d32f95f2-8b92-45b0-b1c7-c2ee1cd7d024)
 
-
 ### Homepage Screen
+
 ![WhatsApp Image 2024-01-12 at 17 49 14_da8362d7](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/817a128c-1155-4ae7-a273-a7f1a5bc278f)
 
-
 ### Habit Screen
+
 ![WhatsApp Image 2024-01-12 at 17 49 15_565e0639](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/cb27c134-b7b5-4811-88b0-138c196c7af5)
 ![WhatsApp Image 2024-01-12 at 17 49 15_95074863](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/143ef247-4124-456f-a184-673912b6b4c2)
 ![WhatsApp Image 2024-01-12 at 17 49 15_f9a80ca9](https://github.com/AhmadSultanMA/dentist-app/assets/90196737/bf59dbe5-6845-4b04-acc2-0f8dbdf17736)
 
-
 ### Consultation Screen
+
 ![WhatsApp Image 2024-01-18 at 19 20 05_7ce2316d](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/ab81e96b-9593-4695-bd93-6a162c05ad8d)
 ![WhatsApp Image 2024-01-18 at 19 20 05_60156661](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/c6f5c261-85fb-46e4-b8c4-eae30c350283)
 ![WhatsApp Image 2024-01-18 at 19 20 06_21b977e9](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/20dae082-746a-4d35-997b-6b16a83de624)
 ![WhatsApp Image 2024-01-18 at 19 20 06_3225201b](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/6b69d25f-37a0-4dd1-b2db-9ff53356772b)
 ![WhatsApp Image 2024-01-18 at 19 20 06_595ea71c](https://github.com/AhmadSultanMA/UrDentist/assets/60171098/cdbe4d21-f168-4b9b-b0c1-93e75eb305ef)
 
-
 ## 🌟 Credit
 
 The Member of our team
 
 1. Ananda Ravi Kuntadi
-2. Ahmad Sultan 
-3. Nabila Nafilia 
+2. Ahmad Sultan
+3. Nabila Nafilia
 4. Noory Azyza
-
 
 ## 🔒License
 
