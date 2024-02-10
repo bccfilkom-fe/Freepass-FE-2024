@@ -7,6 +7,7 @@ import TrackDetails from "@pages/music/[id]";
 import Playlist from "@pages/playlist";
 import PlaylistDetails from "@pages/playlist/[id]";
 import Profile from "@pages/profile";
+import SearchResultPage from "@pages/search";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/music/:id" element={<TrackDetails />} />
             <Route path="/artist" element={<Artist />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/search/:keyword" element={<SearchResultPage />} />
           </Route>
         </Routes>
       </AuthProvider>

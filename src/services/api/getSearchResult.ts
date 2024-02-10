@@ -3,19 +3,18 @@ import { BASE_URL } from "./env";
 import { SearchResult } from "@models/search/SearchResult";
 
 export const getSearchResult = async ({
-  url,
+  q,
   token,
 }: {
-  url: string;
+  q: string;
   token: string | null;
 }) => {
   try {
-    const { data } = await axios.get(`${BASE_URL}${url}`, {
+    const { data } = await axios.get(`${BASE_URL}search?q=${q}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(`${BASE_URL}${url}`);
     return data as SearchResult;
   } catch (error: any) {
     console.error("Error:", error.message);
