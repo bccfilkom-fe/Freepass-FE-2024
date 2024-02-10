@@ -39,9 +39,9 @@ const LoginCard = ({
         </a>
       </Button>
       <div>
-        <h5>Demo Account</h5>
+        <h5>Gunakan Demo Account Agar Bisa Mengakses Seluruh Data</h5>
         <p>email: clipzkz@gmail.com</p>
-        <p>password: mu6spotify</p>
+        <p>password: demomusix6</p>
       </div>
     </div>
   );
