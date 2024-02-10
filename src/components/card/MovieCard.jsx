@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import CircularWithValueLabel from '../feedback/CircularPercentageWithLabel'
 import { useTheme } from '../../theme/ThemeProvider'
 
-// eslint-disable-next-line react/prop-types
 const MovieCard = ({title, rate, votes, poster, id, date}) => {
   const {theme} = useTheme()
 

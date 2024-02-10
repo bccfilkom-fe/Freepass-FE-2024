@@ -24,7 +24,6 @@ const Trailer = ({ handleClose, id }) => {
         setVideoKey(key)
         setLoading(false)
       } catch (error) {
-        console.error("Error fetching video data:", error)
         setLoading(false)
       }
     }

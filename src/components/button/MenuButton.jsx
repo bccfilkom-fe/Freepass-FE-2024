@@ -1,8 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { useTheme } from '../../theme/ThemeProvider'
 
-// eslint-disable-next-line react/prop-types
 const MenuButton = ({handle, isOpen}) => {
   const {theme} = useTheme()
 

@@ -18,7 +18,6 @@ const TransparentButton = ({ handle, name, type, icon }) => {
   )
 }
 
-
 TransparentButton.propTypes = {
   handle: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,

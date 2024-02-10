@@ -1,7 +1,6 @@
 import iconDark from '../../assets/icon/theme/Dark.svg'
 import iconLight from '../../assets/icon/theme/Light.svg'
 
-// eslint-disable-next-line react/prop-types
 const ThemeToggleButton = ({ currentTheme, handleThemeChange }) => {
   const toggleTheme = () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark'

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom"
 import { formatDate } from "../../helper/Helper"
 import { useTheme } from "../../theme/ThemeProvider"
 
-// eslint-disable-next-line react/prop-types
 const ListMovie = ({ title, urlMovies, path }) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -23,7 +22,6 @@ const ListMovie = ({ title, urlMovies, path }) => {
       .then((res) => {
         const data = res.data.results.slice(0, 15)
         setData(data)
-        console.log(data)
       })
       .catch((err) => {
         setErrorMessage(err.message)

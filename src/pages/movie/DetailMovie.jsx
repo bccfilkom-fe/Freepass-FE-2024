@@ -54,10 +54,8 @@ const DetailMovie = () => {
       .then((res) => {
         const data = res.data
         setMovieProviders(data.results)
-        // console.log("Provides", data)
       })
       .catch((err) => {
-        // console.log("error", err)
         setErrorMessage(err.message)
       })
       .finally(() => {

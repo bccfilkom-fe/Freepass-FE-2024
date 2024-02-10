@@ -34,7 +34,6 @@ const TrendingSlider = () => {
       .then((res) => {
         const data = res.data.results.slice(0, 10)
         setData(data)
-        console.log(data)
       })
       .catch((err) => {
         setErrorMessage(err.message)

@@ -41,11 +41,6 @@ function CircularPercentageWithLabel(props) {
 }
 
 CircularPercentageWithLabel.propTypes = {
-  /**
-   * The value of the progress indicator for the determinate variant.
-   * Value between 0 and 100.
-   * @default 0
-   */
   value: PropTypes.number.isRequired,
   isThemeChange: PropTypes.bool.isRequired,
 }
