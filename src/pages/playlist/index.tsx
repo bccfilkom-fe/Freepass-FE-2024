@@ -11,7 +11,7 @@ import { useState } from "react";
 import { PiPlus } from "react-icons/pi";
 
 export default function Playlist() {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch, isRefetching } = useQuery({
     queryFn: async () => {
       await wait(2000);
       const token = window.localStorage.getItem("token");
@@ -19,10 +19,10 @@ export default function Playlist() {
     },
     queryKey: ["userPlaylist"],
   });
-  console.log(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+    refetch();
   };
   return (
     <>
@@ -36,7 +36,7 @@ export default function Playlist() {
         </div>
 
         <GridContainer>
-          {isLoading
+          {isLoading || isRefetching
             ? Array.from({ length: 4 }, (_, index) => (
                 <SkeletonCard key={index} />
               ))

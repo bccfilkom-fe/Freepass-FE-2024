@@ -9,14 +9,14 @@ import { getUserPlaylistById } from "@services/api/playlist/getPlaylist";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { wait } from "@utils/Wait";
 import { convertTime } from "@utils/convertTime";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiPencil } from "react-icons/pi";
 import { TbTrash } from "react-icons/tb";
 import { useParams } from "react-router-dom";
 
 const PlaylistDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading, refetch } = useQuery({
+  const { data, isLoading, refetch, isRefetching } = useQuery({
     queryFn: async () => {
       await wait(2000);
       const token = window.localStorage.getItem("token");
@@ -43,18 +43,11 @@ const PlaylistDetails = () => {
         trackUri: trackUri,
         snapshotId: "success",
         token: window.localStorage.getItem("token") || "",
-      });
-      console.log({
-        playlistId: id ?? "",
-        trackUri: trackUri,
-        snapshotId: "abc",
-        token: window.localStorage.getItem("token") || "",
-      });
+      })
     },
     onSuccess: () => {
       alert("Delete Success");
       setIsDeleteModalOpen(!isDeleteModalOpen);
-      refetch();
     },
   });
 
@@ -62,9 +55,13 @@ const PlaylistDetails = () => {
     deletePlaylistItemMutation.mutate(trackUri);
   };
 
+  useEffect(() => {
+    refetch();
+  }, [isModalOpen]);
+
   return (
     <>
-      {isLoading ? (
+      {isLoading || isRefetching ? (
         <div className="flex flex-col gap-4">
           <SkeletonCardDetail />
           <SkeletonList />
@@ -86,6 +83,7 @@ const PlaylistDetails = () => {
                 <h1>{data?.name}</h1>
                 <span>Owned By: {data?.owner.display_name}</span>
                 <p>{data?.tracks.total} song</p>
+                <p>Description:{data?.description ?? ""}</p>
               </div>
             </div>
             <div className="flex flex-col gap-3 items-center">
