@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { getMovieDetails } from "../api.JS"; // Update the path as needed
+import { getMovieDetails } from "../api.JS";
 import { useParams } from "react-router-dom";
 import Loading from "../component/Loading";
 import { GlobalContext } from "../context/GlobalState";
@@ -12,8 +12,9 @@ const Detail = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const movieDetails = await getMovieDetails(id);
-        setDetail(movieDetails);
+        const { movie } = await getMovieDetails(id);
+        setDetail(movie);
+        console.log(movie);
       } catch (error) {
         console.error("Error fetching movie details:", error.message);
       }
