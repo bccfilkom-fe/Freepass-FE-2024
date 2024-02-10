@@ -1,0 +1,274 @@
+.header-listbook {
+  width: 100%;
+  padding-top: 50px;
+  height: 130px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #41403d;
+  color: white;
+  z-index: 12;
+}
+
+.container-listbook {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Anime */
+.anime-list-listbook {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: 430px;
+  overflow: auto;
+}
+
+.card-listbook {
+  min-width: 250px;
+  height: 350px;
+  box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.5);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.card-listbook img {
+  width: 100%;
+  height: 80%;
+}
+
+.overlay-listbook {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  padding-top: 20px;
+  background-color: rgb(212, 187, 167, 0.9);
+  border-radius: 7rem 2rem 0 0;
+  text-align: justify;
+  opacity: 0;
+}
+
+.anime-over-listbook:hover .overlay-listbook {
+  height: 90%;
+  opacity: 1;
+}
+
+.overlay-listbook .synopsis-listbook {
+  width: 100%;
+  height: 70%;
+  padding: 0 auto;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Movie */
+.movie-container-listbook {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  gap: 20px;
+  overflow: auto;
+  height: 430px;
+
+}
+
+.movie-list-listbook {
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.5);
+  min-width: 250px;
+  height: 350px;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-list-listbook .poster-listbook {
+  width: 100%;
+  height: 250px;
+}
+.movie-over-listbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-over-listbook .box-listbook {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.movie-over-listbook .title-listbook {
+  width: 160px;
+  text-align: center;
+}
+
+.rating-listbook {
+  background-color: yellow;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid black;
+  box-shadow: inset 0 5px 5px rgb(0, 0, 0, 0.5);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.movie-overlay-listbook {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  padding: 1rem;
+  background-color: rgb(212, 187, 167, 0.9);
+  border-radius: 10rem 3rem 0 0;
+  text-align: justify;
+  opacity: 0;
+}
+
+.movie-over-listbook:hover .movie-overlay-listbook {
+  padding-top: 35px;
+  height: 100%;
+  opacity: 1;
+}
+
+.movie-overlay-listbook .movie-synopsis-listbook {
+  width: 100%;
+  height: 80%;
+  padding: 0 auto;
+  padding: 1rem;
+  overflow: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .header-listbook {
+    font-size: 15px;
+    height: 110px;
+  }
+
+  .container-listbook {
+    padding: 10px;
+  }
+  .container-listbook h1 {
+    font-size: 25px;
+  }
+
+  /* Anime */
+  .anime-list-listbook {
+    height: 300px;
+  }
+  .card-listbook {
+    min-width: 150px;
+    height: 250px;
+  }
+
+  .overlay-listbook .synopsis-listbook {
+    font-size: 13px;
+  }
+
+  /* Movie */
+  .movie-container-listbook {
+    height: 310px;
+  }
+
+  .movie-list-listbook {
+    min-width: 150px;
+    height: 250px;
+  }
+
+  .movie-list-listbook .poster-listbook {
+    width: 100%;
+    height: 70%;
+  }
+
+  .movie-over-listbook .title-listbook {
+    font-size: 13px;
+  }
+
+  .rating-listbook {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .movie-overlay-listbook .movie-synopsis-listbook {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .header-listbook {
+    font-size: 15px;
+    height: 110px;
+  }
+
+  .container-listbook {
+    padding: 10px;
+  }
+  .container-listbook h1 {
+    font-size: 25px;
+  }
+
+  /* Anime */
+  .anime-list-listbook {
+    height: 360px;
+  }
+  .card-listbook {
+    min-width: 200px;
+    height: 300px;
+  }
+
+  .overlay-listbook .synopsis-listbook {
+    font-size: 15px;
+  }
+
+  /* Movie */
+  .movie-container-listbook {
+    height: 360px;
+  }
+
+  .movie-list-listbook {
+    min-width: 200px;
+    height: 300px;
+  }
+
+  .movie-list-listbook .poster-listbook {
+    width: 100%;
+    height: 80%;
+  }
+
+  .movie-over-listbook .title-listbook {
+    font-size: 13px;
+  }
+
+  .rating-listbook {
+    width: 35px;
+    height: 35px;
+    font-size: 13px;
+  }
+
+  .movie-overlay-listbook .movie-synopsis-listbook {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,245 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: white;
+}
+
+.header-movie {
+  width: 100%;
+  padding-top: 50px;
+  height: 130px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #41403d;
+  color: white;
+  z-index: 1;
+}
+
+.header-movie .search-box-movie input {
+  outline: none;
+  border: none;
+  width: 250px;
+  height: 30px;
+  font-size: 1.2rem;
+  padding: 0 1px;
+  gap: 20px;
+}
+
+.header-movie .search-box-movie button {
+  height: 30px;
+}
+
+.genre .genre-list {
+  display: flex;
+}
+
+.genre .genre-list .genre-item {
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.genre .genre-list .genre-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0.2rem;
+  position: relative;
+}
+
+.genre .genre-list .genre-item a::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  height: 3px;
+  width: 0%;
+  transform: translateX(-50%);
+  background-color: yellow;
+  transition: all 0.3s ease-in-out;
+}
+
+.genre .genre-list .genre-item a:hover:before {
+  width: 100%;
+}
+
+.genre .genre-list .genre-item a:focus {
+  background-color: yellow;
+  opacity: 0.2px;
+  border-radius: 10px;
+}
+
+.genre .genre-list .genre-item a:focus::before {
+  width: 0%;
+}
+
+.movie-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 650px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.movie-list {
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.5);
+  width: 250px;
+  height: 350px;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-list .poster {
+  width: 100%;
+  height: 250px;
+}
+.movie-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-over .box {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.movie-over .title {
+  width: 160px;
+  text-align: center;
+}
+
+.rating {
+  background-color: yellow;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid black;
+  box-shadow: inset 0 5px 5px rgb(0, 0, 0, 0.5);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.movie-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  padding: 1rem;
+  background-color: rgb(212, 187, 167, 0.9);
+  border-radius: 10rem 3rem 0 0;
+  text-align: justify;
+  opacity: 0;
+}
+
+.movie-over:hover .movie-overlay {
+  padding-top: 35px;
+  height: 100%;
+  opacity: 1;
+}
+
+.movie-overlay .movie-synopsis {
+  width: 100%;
+  height: 80%;
+  padding: 0 auto;
+  padding: 1rem;
+  overflow: auto;
+}
+
+
+@media screen and (max-width: 600px) {
+  .header-movie {
+    font-size: 15px;
+    height: 200px;
+    flex-direction: column;
+  }
+
+  .header-movie .search-box-movie input {
+    width: 200px;
+  }
+
+  .genre .genre-list .genre-item a {
+    font-size: 15px;
+  }
+
+  .movie-container {
+    width: 90%;
+  }
+
+  .movie-list {
+    width: 200px;
+    height: 300px;
+  }
+
+  .movie-list .poster {
+    width: 100%;
+    height: 80%;
+  }
+
+  .movie-over .title {
+    font-size: 13px;
+  }
+
+  .rating {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .movie-overlay .movie-synopsis {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .header-movie {
+    height: 200px;
+    flex-direction: column;
+  }
+
+  .movie-container {
+    width: 90%;
+  }
+
+  .movie-list {
+    width: 200px;
+    height: 300px;
+  }
+
+  .movie-list .poster {
+    width: 100%;
+    height: 70%;
+  }
+
+  .rating {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .movie-overlay .movie-synopsis {
+    font-size: 15px;
+  }
+}
