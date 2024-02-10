@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+
+  h7 {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 20px;
+    }
+  
+    h2 {
+      font-size: 15px;
+    }
+  
+    h2 {
+      font-size: 14px;
+    }
+  
+    h4 {
+      font-size: 11px;
+    }
+  
+    h5 {
+      font-size: 9px;
+    }
+  
+    h6 {
+      font-size: 7px;
+    }
+  
+    h7 {
+      font-size: 6px;
+    }
+  
+    p {
+      font-size: 7.5px;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4E4E4E;
+  filter: brightness(0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
+  filter: brightness(0.8);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 1000px
+}
