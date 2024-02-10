@@ -1,10 +1,12 @@
 import Button from "@components/Button";
 import FormModal from "@components/FormPlaylistModal";
+import Modal from "@components/Modal";
 import SkeletonCardDetail from "@components/loading/SkeletonCardDetail";
 import SkeletonList from "@components/loading/SkeletonList";
 import { ItemById } from "@models/playlist/Item";
+import { deletePlaylistItem } from "@services/api/playlist/deletePlaylistItem";
 import { getUserPlaylistById } from "@services/api/playlist/getPlaylist";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { wait } from "@utils/Wait";
 import { convertTime } from "@utils/convertTime";
 import { useState } from "react";
@@ -24,12 +26,42 @@ const PlaylistDetails = () => {
   });
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
     if (isModalOpen === false) {
       refetch();
     }
   };
+  const toggleDeleteModal = () => {
+    setIsDeleteModalOpen(!isDeleteModalOpen);
+  };
+  const deletePlaylistItemMutation = useMutation<void, Error, string, unknown>({
+    mutationFn: async (trackUri: string) => {
+      await deletePlaylistItem({
+        playlistId: id ?? "",
+        trackUri: trackUri,
+        snapshotId: "success",
+        token: window.localStorage.getItem("token") || "",
+      });
+      console.log({
+        playlistId: id ?? "",
+        trackUri: trackUri,
+        snapshotId: "abc",
+        token: window.localStorage.getItem("token") || "",
+      });
+    },
+    onSuccess: () => {
+      alert("Delete Success");
+      setIsDeleteModalOpen(!isDeleteModalOpen);
+      refetch();
+    },
+  });
+
+  const handleDelete = async (trackUri: string) => {
+    deletePlaylistItemMutation.mutate(trackUri);
+  };
+
   return (
     <>
       {isLoading ? (
@@ -61,14 +93,6 @@ const PlaylistDetails = () => {
                 Edit
                 <PiPencil size={20} />
               </Button>
-              <Button
-                variant="default"
-                className="flex gap-3 items-center"
-                onClick={toggleModal}
-              >
-                Delete
-                <TbTrash size={20} />
-              </Button>
             </div>
           </div>
 
@@ -79,6 +103,7 @@ const PlaylistDetails = () => {
                   <th className="text-left pr-4">Song</th>
                   <th className="md:text-center">Album</th>
                   <th className="text-center hidden md:block">Duration</th>
+                  <th className="ml-4"></th>
                 </tr>
               </thead>
               <tbody>
@@ -90,6 +115,21 @@ const PlaylistDetails = () => {
                     </td>
                     <td className="text-center hidden md:block">
                       {convertTime(tracksItem.track.duration_ms)}
+                    </td>
+                    <td className="ml-4">
+                      <TbTrash
+                        size={20}
+                        className="mb-4"
+                        onClick={toggleDeleteModal}
+                      />
+                      {isDeleteModalOpen && (
+                        <Modal
+                          key={tracksItem.track.id}
+                          text="Are you sure want to delete this item from your playlist?"
+                          onClick={() => handleDelete(tracksItem.track.uri)}
+                          onClose={toggleDeleteModal}
+                        />
+                      )}
                     </td>
                   </tr>
                 ))}

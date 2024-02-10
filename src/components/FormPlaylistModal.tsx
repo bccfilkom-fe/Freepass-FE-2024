@@ -99,13 +99,13 @@ const FormModal: React.FC<ModalProps> = ({ type, text, onClose, id }) => {
   const { mutateAsync: updatePlaylistMutation } = useMutation({
     mutationFn: updatePlaylist,
     onSuccess: () => {
-      alert("berhasil");
+      alert("Update Success");
     },
   });
   const { mutateAsync: createPlaylistMutation } = useMutation({
     mutationFn: createPlaylist,
     onSuccess: () => {
-      alert("berhasil");
+      alert("Update Success");
     },
   });
 

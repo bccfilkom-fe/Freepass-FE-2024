@@ -1,6 +1,5 @@
 import Button from "./Button";
 import { useRef } from "react";
-import { useOnClickOutside } from "@hooks/UseOnClickOutside";
 
 interface ModalProps {
   text: string;
@@ -10,10 +9,6 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ text, onClose, onClick }) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
-
-  if (onClose) {
-    useOnClickOutside(modalRef, onClose);
-  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center px-32">
@@ -26,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({ text, onClose, onClick }) => {
           <Button className="" onClick={onClose}>
             Cancle
           </Button>
-          <Button variant="default" className="" onClick={() => onClick}>
+          <Button variant="default" className="" onClick={onClick}>
             Yes
           </Button>
         </div>
