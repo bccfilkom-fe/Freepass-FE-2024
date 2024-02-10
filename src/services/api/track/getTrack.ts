@@ -16,7 +16,7 @@ export const getTrack = async ({
       },
     });
     console.log(`${BASE_URL}${url}`);
-    return data as Track;
+    return data as Track ?? [];
   } catch (error: any) {
     console.error("Error:", error.message);
   }

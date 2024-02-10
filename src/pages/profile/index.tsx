@@ -21,7 +21,7 @@ export default function Profile() {
         <h1 className="text-center">Your Profile</h1>
         <div className=" flex gap-4 flex-col">
           <h4>Username: {data?.display_name}</h4>
-          <h4>Followers: {data?.followers.total}</h4>
+          <h4>Followers: {data?.followers.total??0}</h4>
         </div>
       </div>
     </section>

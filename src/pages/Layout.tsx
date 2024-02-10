@@ -4,6 +4,7 @@ import { useAuth } from "@hooks/UseAuth";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Login from "./Login";
+import Footer from "@components/Footer";
 
 export default function Layout() {
   const { token, handleLogout } = useAuth();
@@ -20,6 +21,7 @@ export default function Layout() {
               <Outlet />
             </main>
           </div>
+          <Footer />
         </>
       ) : (
         <Login />

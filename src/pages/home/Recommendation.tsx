@@ -1,3 +1,4 @@
+import Button from "@components/Button";
 import Card from "@components/Card";
 import GridContainer from "@components/GridContainer";
 import SkeletonCard from "@components/loading/SkeletonCard";
@@ -18,7 +19,10 @@ const Recommendation = () => {
 
   return (
     <section className="container">
-      <h1>Recommended Song</h1>
+      <div className="flex justify-between">
+        <h1>Recommended Song</h1>
+        <Button variant="disabled">See All</Button>
+      </div>
       <GridContainer>
         {isLoading
           ? Array.from({ length: 8 }, (_, index) => (

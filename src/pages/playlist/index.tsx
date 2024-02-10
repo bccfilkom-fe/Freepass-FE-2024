@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { wait } from "@utils/Wait";
 import { useState } from "react";
 import { PiPlus } from "react-icons/pi";
+import FollowedPlaylist from "./FollowedPlaylist";
 
 export default function Playlist() {
   const { data, isLoading } = useQuery({
@@ -25,42 +26,46 @@ export default function Playlist() {
     setIsModalOpen(!isModalOpen);
   };
   return (
-    <section className="container flex flex-col gap-16 py-10">
-      <div className="flex justify-between">
-        <h1 className="h3 lg:h1">Your Playlist</h1>
-        <Button variant="default" onClick={toggleModal}>
-          Create New Playlist
-          <PiPlus size={25} />
-        </Button>
-      </div>
+    <>
+      <section className="container flex flex-col gap-16 py-10">
+        <div className="flex justify-between">
+          <h1 className="h3 lg:h1">Your Playlist</h1>
+          <Button variant="default" onClick={toggleModal}>
+            Create New Playlist
+            <PiPlus size={25} />
+          </Button>
+        </div>
 
-      <GridContainer>
-        {isLoading
-          ? Array.from({ length: 4 }, (_, index) => (
-              <SkeletonCard key={index} />
-            ))
-          : data?.map((playlistItem: Item) => (
-              <Card
-                type="playlist"
-                key={playlistItem.id}
-                id={playlistItem.id}
-                image={
-                  playlistItem?.images?.length && playlistItem.images.length > 0
-                    ? playlistItem.images[0].url
-                    : "https://placehold.jp/400x400.png"
-                }
-                name={playlistItem.name}
-              />
-            ))}
-      </GridContainer>
-      {isModalOpen && (
-        <FormModal
-          type="post"
-          text="Create New Playlist"
-          onClose={toggleModal}
-          id={window.localStorage.getItem("userId") ?? ""}
-        />
-      )}
-    </section>
+        <GridContainer>
+          {isLoading
+            ? Array.from({ length: 4 }, (_, index) => (
+                <SkeletonCard key={index} />
+              ))
+            : data?.map((playlistItem: Item) => (
+                <Card
+                  type="playlist"
+                  key={playlistItem.id}
+                  id={playlistItem.id}
+                  image={
+                    playlistItem?.images?.length &&
+                    playlistItem.images.length > 0
+                      ? playlistItem.images[0].url
+                      : "https://placehold.jp/400x400.png"
+                  }
+                  name={playlistItem.name}
+                />
+              ))}
+        </GridContainer>
+        {isModalOpen && (
+          <FormModal
+            type="post"
+            text="Create New Playlist"
+            onClose={toggleModal}
+            id={window.localStorage.getItem("userId") ?? ""}
+          />
+        )}
+      </section>
+      <FollowedPlaylist />
+    </>
   );
 }

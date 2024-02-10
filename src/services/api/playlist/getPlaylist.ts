@@ -16,7 +16,7 @@ export const getUserPlaylist = async ({
         Authorization: `Bearer ${token}`,
       },
     });
-    return data.items as Item[];
+    return data.items as Item[] ?? [];
   } catch (error: any) {
     console.error("Error:", error.message);
   }
@@ -36,7 +36,7 @@ export const getUserPlaylistById = async ({
       },
     });
     console.log(`${BASE_URL}${url}`);
-    return data as PlaylistById;
+    return data as PlaylistById ?? [];
   } catch (error: any) {
     console.error("Error:", error.message);
   }

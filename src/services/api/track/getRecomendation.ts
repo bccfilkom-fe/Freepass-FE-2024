@@ -19,7 +19,7 @@ export const get8RecommendationTrack = async ({
       }
     );
     console.log(`${BASE_URL}${url}`);
-    return data as Recommendation;
+    return data as Recommendation ?? [];
   } catch (error: any) {
     console.error("Error:", error.message);
   }

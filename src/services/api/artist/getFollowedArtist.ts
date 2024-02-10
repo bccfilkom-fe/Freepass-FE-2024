@@ -1,8 +1,8 @@
-import { User } from "@models/user/User";
 import axios from "axios";
 import { BASE_URL } from "../env";
+import { FollowedArtist } from "@models/artist/FollowedArtist";
 
-export const getUserResponse = async ({
+export const getFollowedArtist = async ({
   url,
   token,
 }: {
@@ -10,12 +10,12 @@ export const getUserResponse = async ({
   token: string | null;
 }) => {
   try {
-    const { data } = await axios.get(`${BASE_URL}${url}`, {
+    const { data } = await axios.get(`${BASE_URL}${url}?`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    return data as User ?? [];
+    return data.items as FollowedArtist ?? [];
   } catch (error: any) {
     console.error("Error:", error.message);
   }
