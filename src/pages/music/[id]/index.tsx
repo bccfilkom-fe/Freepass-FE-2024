@@ -24,7 +24,7 @@ const TrackDetails = () => {
       ) : (
         <div className="shadow-xl">
           <div className="flex flex-col md:flex-row gap-6 p-20 items-center justify-between">
-            <div className="flex gap-8">
+            <div className="flex flex-col md:flex-row gap-8">
               <img
                 src={data?.album.images[0].url}
                 alt=""
