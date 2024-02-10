@@ -101,7 +101,7 @@ const PlaylistDetails = () => {
                   <th className="text-left pr-4">Song</th>
                   <th className="md:text-center">Album</th>
                   <th className="text-center hidden md:block">Duration</th>
-                  <th className="ml-4"></th>
+                  <th className="ml-8"></th>
                 </tr>
               </thead>
               <tbody>
@@ -114,7 +114,7 @@ const PlaylistDetails = () => {
                     <td className="text-center hidden md:block">
                       {convertTime(tracksItem.track.duration_ms)}
                     </td>
-                    <td className="ml-4">
+                    <td className="ml-8">
                       <TbTrash
                         size={20}
                         className="mb-4"

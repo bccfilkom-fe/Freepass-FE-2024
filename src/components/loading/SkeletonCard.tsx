@@ -5,7 +5,7 @@ const SkeletonCard = () => {
     >
       <div className="w-[300px] h-[300px] " />
       <div className="flex flex-col gap-4 pl-4">
-        <div className="h-3 w-40 bg-secGray" />
+        <div className="h-3 w-32 bg-secGray" />
         <div className="h-3 w-12 bg-secGray" />
       </div>
     </div>

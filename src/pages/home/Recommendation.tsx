@@ -6,6 +6,7 @@ import { Track } from "@models/track/Track";
 import { get8RecommendationTrack } from "@services/api/track/getRecomendation";
 import { useQuery } from "@tanstack/react-query";
 import { wait } from "@utils/Wait";
+import { Link } from "react-router-dom";
 
 const Recommendation = () => {
   const { data, isLoading } = useQuery({
@@ -19,9 +20,11 @@ const Recommendation = () => {
 
   return (
     <section className="container">
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row items-start gap-4 justify-between">
         <h1>Recommended Song</h1>
-        <Button variant="disabled">See All</Button>
+        <Button variant="disabled">
+          <Link to="/music"> See All</Link>
+        </Button>
       </div>
       <GridContainer>
         {isLoading

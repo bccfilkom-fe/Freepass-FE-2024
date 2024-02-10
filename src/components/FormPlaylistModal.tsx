@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useRef, useState } from "react";
 import { useOnClickOutside } from "@hooks/UseOnClickOutside";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { BASE_URL } from "@services/api/env";
 import { wait } from "@utils/Wait";
@@ -86,13 +86,14 @@ const FormModal: React.FC<ModalProps> = ({ type, text, onClose, id }) => {
     description: formData.description,
     public: formData.isPublic,
   };
+  const queryClient = useQueryClient();
 
   const updatePlaylist = async () => {
     await axios.put(putUrl, dataInput, config);
   };
   const createPlaylist = async () => {
-    console.log("create x")
-    console.log(postUrl, dataInput, config)
+    console.log("create x");
+    console.log(postUrl, dataInput, config);
     await axios.post(postUrl, dataInput, config);
   };
 
@@ -100,17 +101,19 @@ const FormModal: React.FC<ModalProps> = ({ type, text, onClose, id }) => {
     mutationFn: updatePlaylist,
     onSuccess: () => {
       alert("Update Success");
+      queryClient.invalidateQueries({queryKey:["playlistDetail"]});
     },
   });
   const { mutateAsync: createPlaylistMutation } = useMutation({
     mutationFn: createPlaylist,
     onSuccess: () => {
-      alert("Update Success");
+      alert("Create Success");
+      queryClient.invalidateQueries({queryKey:["userPlaylist"]});
     },
   });
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center px-32">
+    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center px-16">
       <div
         className="px-20 bg-white flex flex-col py-32 gap-10 rounded-xl overflow-y-auto max-h-[90vh]"
         ref={modalRef}
