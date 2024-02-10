@@ -3,7 +3,6 @@ import Image from "next/image";
 import StarRating from "./star-rating";
 import useMovieDetails from "@/hooks/use-movie-details";
 import MovieDetailsSkeleton from "./movie-details-skeleton";
-import { Skeleton } from "./ui/skeleton";
 
 interface MovieDetailsProps {
   id: string;

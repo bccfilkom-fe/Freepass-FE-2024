@@ -1,5 +1,4 @@
 "use client";
-
 import Logo from "@/public/assets/svg-components/logo";
 import { ThemeSwitcher } from "./theme-switcher";
 import Link from "next/link";
