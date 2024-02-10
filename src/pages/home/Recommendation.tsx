@@ -14,7 +14,7 @@ const Recommendation = () => {
       const token = window.localStorage.getItem("token");
       return get8RecommendationTrack({ url: "recommendations", token });
     },
-    queryKey: ["recom"],
+    queryKey: ["recomhome"],
   });
 
   return (

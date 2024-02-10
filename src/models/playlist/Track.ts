@@ -1,7 +1,7 @@
 import { ExternalIds } from "@models/ExternalIds";
 import { ExternalUrls } from "@models/ExternalUrls";
 import { Restriction } from "@models/Restriction";
-import { Artist } from "@models/track/Artist";
+import { Artist } from "@models/search/Artist";
 import { TrackAlbum } from "@models/track/TrackAlbum";
 import { Type } from "@models/type/Type";
 

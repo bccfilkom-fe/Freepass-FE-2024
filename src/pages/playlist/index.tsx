@@ -9,7 +9,6 @@ import { useQuery } from "@tanstack/react-query";
 import { wait } from "@utils/Wait";
 import { useState } from "react";
 import { PiPlus } from "react-icons/pi";
-import FollowedPlaylist from "./FollowedPlaylist";
 
 export default function Playlist() {
   const { data, isLoading } = useQuery({
@@ -65,7 +64,6 @@ export default function Playlist() {
           />
         )}
       </section>
-      <FollowedPlaylist />
     </>
   );
 }

@@ -15,7 +15,7 @@ const Playlist = () => {
       const token = window.localStorage.getItem("token");
       return getUserPlaylist({ url: "me/playlists?limit=4", token });
     },
-    queryKey: [window.localStorage.getItem("token")],
+    queryKey: ["playlisthome"],
   });
   return (
     <section className="container flex flex-col gap-16">

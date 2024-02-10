@@ -1,3 +1,1 @@
-export type AlbumType={
-    
-}
+export type AlbumType = "compilation";
