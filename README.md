@@ -1,5 +1,5 @@
 # MyRestoApp
-Web app base project used for Front-end Developer Part-time Practical Task of Nanda Hafiza Yusron
+Web app base project used for seacrh ingredients and meal by Nanda Hafiza Yusron
 
 ## Tech
 ReactJS + tailwindcss
@@ -7,9 +7,9 @@ ReactJS + tailwindcss
 ## Installation
 ```
 # clone this repository
-$ git clone https://github.com/nandaha29/cmlabs-frontend-parttime-test.git
+$ git clone https://github.com/nandaha29/Freepass-FE-2024.git
 # move to project folder
-$ cd cmlabs-frontend-parttime-test/myresto-app/
+$ cd myresto-app
 # install dependencies
 $ npm install
 ```
@@ -23,7 +23,7 @@ $ npm start
 
 ## Download Source Code
 - link repository github :
-https://github.com/nandaha29/cmlabs-frontend-parttime-test
+https://github.com/nandaha29/Freepass-FE-2024.git
 - link deploy :
 https://myrestoapp.vercel.app/
 
