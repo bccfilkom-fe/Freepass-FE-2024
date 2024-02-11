@@ -30,21 +30,19 @@ const Movies = () => {
           </div>
           <div className="movie-grid">
             {moviesList.map((movie) => (
-              <a href={`/movies/detail/${movie.id}`} key={movie.id}>
-                <div className="movie-card">
-                  <div className="overlay"></div>
-                  {movie.poster_path ? (
-                    <img
-                      src={`${import.meta.env.VITE_BASEIMGURL}${
-                        movie.poster_path
-                      }`}
-                      alt={movie.title}
-                    />
-                  ) : (
-                    <div className="filler-poster"></div>
-                  )}
-                </div>
-              </a>
+              <div className="movie-card">
+                <div className="overlay"></div>
+                {movie.poster_path ? (
+                  <img
+                    src={`${import.meta.env.VITE_BASEIMGURL}${
+                      movie.poster_path
+                    }`}
+                    alt={movie.title}
+                  />
+                ) : (
+                  <div className="filler-poster"></div>
+                )}
+              </div>
             ))}
           </div>
           <Pagination
