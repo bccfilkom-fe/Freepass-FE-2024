@@ -79,7 +79,6 @@ input:focus {
   outline: none;
 }
 
-/* Header Styles */
 header {
   background-color: var(--primary);
 }
@@ -110,7 +109,7 @@ header .brand a {
 
 @media (max-width: 480px) {
   header .brand a {
-    font-size: 2rem; /* Adjust the font size as needed */
+    font-size: 2rem; 
   }
 }
 
@@ -119,8 +118,8 @@ header .nav-links {
   margin: 0;
   list-style: none;
   display: flex;
-  flex-direction: row; /* Change to column on small screens */
-  align-items: center; /* Center items vertically */
+  flex-direction: row;
+  align-items: center; 
 }
 
 header .nav-links li {
@@ -135,13 +134,13 @@ header .nav-links li:last-child {
 /* Responsive Design */
 @media (max-width: 768px) {
   header .inner-content {
-    flex-direction: column; /* Stack items in a column on small screens */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column; 
+    align-items: center;
   }
 
   header .nav-links {
-    flex-direction: row; /* Align items in a row on small screens */
-    margin-top: 10px; /* Add some spacing between items */
+    flex-direction: row;
+    margin-top: 10px;
   }
 
   header .nav-links li {
@@ -306,7 +305,7 @@ header .nav-links li:last-child {
   color: #fefefe;
   background-color: transparent;
   border: none;
-  /* transition: all 0.3s ease; */
+
   font-size: 1.25rem;
   padding: 5px;
   margin: 0;
@@ -329,13 +328,13 @@ header .nav-links li:last-child {
 
 .detail-poster {
   width: 30%;
-  /* Add other styles for the poster as needed */
+
 }
 
 .overview {
   width: 70%;
-  margin-left: 20px; /* Adjust margin as needed */
-  /* Add other styles for the overview as needed */
+  margin-left: 20px;
+
 }
 
 @media (max-width: 768px) {
@@ -345,7 +344,7 @@ header .nav-links li:last-child {
   }
 }
 
-/* HTML: <div class="loader"></div> */
+
 .loader {
   width: 50px;
   padding: 8px;

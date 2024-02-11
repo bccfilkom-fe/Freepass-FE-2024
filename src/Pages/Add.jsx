@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchMovie } from "../api.JS";
+import { searchMovie } from "../api-util.JS";
 import ResultCard from "../component/ResultCard.jsx";
 
 const Add = () => {

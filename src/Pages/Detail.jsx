@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { getMovieDetails } from "../api.JS";
+import { getMovieDetails } from "../api-util.JS";
 import { useParams } from "react-router-dom";
 import Loading from "../component/Loading";
 import { GlobalContext } from "../context/GlobalState";
